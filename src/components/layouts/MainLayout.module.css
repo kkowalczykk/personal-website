@@ -1,0 +1,7 @@
+.perspective{
+    transition: all 0.3s ease-in-out;
+    transform: perspective(100px) translateZ(0px);
+}
+.perspective--active{
+    transform: perspective(100px) translateZ(-10px);
+}
