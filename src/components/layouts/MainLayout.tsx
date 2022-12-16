@@ -1,9 +1,11 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useRef, useState } from 'react';
 import { NextPageWithLayout } from '../../pages/_app';
 import Navbar from '../navbar/Navbar';
 import { Kanit } from '@next/font/google';
 import styles from './MainLayout.module.css';
 import { atom, useAtom, useAtomValue } from 'jotai';
+import SideMenu from '../sideMenu/SideMenu';
+import Cursor from '../cursor/Cursor';
 
 export const menuOpenAtom = atom(false);
 
@@ -17,10 +19,11 @@ export interface IMainLayout {
 }
 
 const MainLayout: React.FC<IMainLayout> = ({ children }) => {
-  const menuOpen = useAtomValue(menuOpenAtom);
-
+  const [menuOpen, setMenuOpen] = useAtom(menuOpenAtom);
+  const cursorTargetRef = useRef<HTMLDivElement>(null);
   return (
-    <div className={'bg-slate-900 ' + font.className}>
+    <div className={'bg-dark-primary ' + font.className} ref={cursorTargetRef}>
+      {/* START Perspective Wrapper */}
       <div
         className={
           `${styles.perspective}` +
@@ -32,6 +35,18 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
           {children}
         </div>
       </div>
+      {/* END Perspective Wrapper */}
+
+      <SideMenu open={menuOpen} setOpen={setMenuOpen}></SideMenu>
+
+      <Cursor target={cursorTargetRef}></Cursor>
+      {/* <style jsx global>
+        {`
+          * {
+            cursor: none;
+          }
+        `}
+      </style> */}
     </div>
   );
 };

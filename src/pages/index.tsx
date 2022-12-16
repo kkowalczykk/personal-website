@@ -6,7 +6,7 @@ import { trpc } from '../utils/trpc';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
-  const hello = trpc.example.hello.useQuery({ text: 'from tRPC' });
+  // const hello = trpc.example.hello.useQuery({ text: 'from tRPC' });
   return (
     <>
       <Head>
@@ -29,7 +29,8 @@ const Home: NextPageWithLayout = () => {
               </div>
             </div>
             <h1 className="mb-2 text-5xl font-bold">
-              I'm Karol<span className="text-teal-primary">.</span>
+              I'm Karol
+              <span className="animate-blink text-teal-primary">.</span>
             </h1>
             <h2 className="text-2xl font-bold text-teal-primary">
               Full-Stack Developer
@@ -38,11 +39,11 @@ const Home: NextPageWithLayout = () => {
         </header>
 
         <div className="bg-gridlines absolute top-0 left-0 h-full w-full">
-          <Container className="mx-auto flex h-full justify-between text-gray-600 opacity-30">
+          <Container className="mx-auto flex h-full justify-between text-gray-600 opacity-20 lg:opacity-30">
             <div className="h-full w-0.5 bg-current"></div>
+            <div className="hidden h-full w-0.5 bg-current lg:block"></div>
             <div className="h-full w-0.5 bg-current"></div>
-            <div className="h-full w-0.5 bg-current"></div>
-            <div className="h-full w-0.5 bg-current"></div>
+            <div className="hidden h-full w-0.5 bg-current lg:block"></div>
             <div className="h-full w-0.5 bg-current"></div>
           </Container>
         </div>

@@ -5,3 +5,19 @@
 .bg-gridlines {
   transform: translateZ(-1px);
 }
+
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.35s infinite;
+}
+
+/* Scroll highlight color */
+::selection{
+  background-color: #f8f8f8;
+  color: #000;
+}

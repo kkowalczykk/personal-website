@@ -6,7 +6,8 @@ const Container: React.FC<IContainer> = ({ children, className }) => {
   return (
     <div
       className={
-        'container mx-auto xl:max-w-7xl' + (className ? ` ${className}` : '')
+        'container mx-auto px-3 lg:px-5 xl:max-w-7xl' +
+        (className ? ` ${className}` : '')
       }
     >
       {children}

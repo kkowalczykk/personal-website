@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Burger from '../burger/Burger';
+import NavbarMenu from '../navbarMenu/NavbarMenu';
 
 export interface INavbar {
   children?: React.ReactNode;
@@ -7,7 +8,7 @@ export interface INavbar {
 
 const Navbar: React.FC<INavbar> = ({ children }) => {
   return (
-    <nav className="fixed left-0 top-0 z-30 flex w-full flex-1 flex-row items-center justify-between px-20 text-center text-white">
+    <nav className="fixed left-0 top-0 z-30 flex w-full flex-1 flex-row items-center justify-between px-5 text-center text-white lg:px-20">
       <div className="container mx-auto flex justify-between py-3">
         <div className="flex flex-row items-center justify-center">
           <Link href="/">
@@ -17,7 +18,12 @@ const Navbar: React.FC<INavbar> = ({ children }) => {
           </Link>
         </div>
         <div className="flex flex-row items-center justify-center">
-          <Burger></Burger>
+          <div className="block lg:hidden">
+            <Burger></Burger>
+          </div>
+          <div className="hidden lg:block">
+            <NavbarMenu></NavbarMenu>
+          </div>
         </div>
       </div>
     </nav>
