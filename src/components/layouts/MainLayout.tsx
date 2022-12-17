@@ -1,17 +1,25 @@
-import { ReactElement, useRef, useState } from 'react';
-import { NextPageWithLayout } from '../../pages/_app';
+import { useRef, useEffect } from 'react';
 import Navbar from '../navbar/Navbar';
-import { Kanit } from '@next/font/google';
+import { Kanit, Permanent_Marker } from '@next/font/google';
 import styles from './MainLayout.module.css';
 import { atom, useAtom, useAtomValue } from 'jotai';
 import SideMenu from '../sideMenu/SideMenu';
 import Cursor from '../cursor/Cursor';
+import SmoothScroll from '../../utils/SmoothScroll';
+import usePointerMatch from '../../utils/usePointerMatch';
 
 export const menuOpenAtom = atom(false);
+export const isPointerAtom = atom(false);
 
 const font = Kanit({
   weight: ['400', '700'],
   subsets: ['latin-ext', 'latin'],
+});
+
+const Permanent_Marker_font = Permanent_Marker({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-marker'
 });
 
 export interface IMainLayout {
@@ -20,17 +28,29 @@ export interface IMainLayout {
 
 const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   const [menuOpen, setMenuOpen] = useAtom(menuOpenAtom);
-  const cursorTargetRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const pointerMatch = usePointerMatch();
+  const isPointer = useAtomValue(isPointerAtom);
+
+  useEffect(function () {
+    // @ts-ignore
+    const smoothScroll = new SmoothScroll(document, 120, 12);
+    smoothScroll.init();
+    return () => {
+      smoothScroll.destroy();
+    };
+  }, []);
+
   return (
-    <div className={'bg-dark-primary ' + font.className} ref={cursorTargetRef}>
+    <div className={'bg-dark-primary ' + `${font.className} ${Permanent_Marker_font.variable}`} ref={contentRef}>
       {/* START Perspective Wrapper */}
+      <Navbar></Navbar>
       <div
         className={
           `${styles.perspective}` +
           (menuOpen ? ` ${styles['perspective--active']}` : '')
         }
       >
-        <Navbar></Navbar>
         <div className="MainLayout__body flex min-h-screen flex-col items-center justify-center bg-dark-primary text-white">
           {children}
         </div>
@@ -39,7 +59,7 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
 
       <SideMenu open={menuOpen} setOpen={setMenuOpen}></SideMenu>
 
-      <Cursor target={cursorTargetRef}></Cursor>
+      {isPointer && <Cursor></Cursor>}
       {/* <style jsx global>
         {`
           * {

@@ -2,19 +2,12 @@ import { useRef } from 'react';
 import useClickOutside from '../../utils/useClickOutside';
 import Container from '../container/Container';
 import { MdClose } from 'react-icons/md';
-import { Permanent_Marker } from '@next/font/google';
-import { useSetAtom } from 'jotai';
 
 export interface ISideMenu extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-
-const Permanent_Marker_font = Permanent_Marker({
-  weight: ['400'],
-  subsets: ['latin'],
-});
 
 const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
   const sideMenuRef = useRef(null);
@@ -24,7 +17,7 @@ const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
     <div
       ref={sideMenuRef}
       className={
-        'fixed top-0 right-0 h-screen w-screen bg-dark-primary bg-opacity-50 text-white backdrop-blur-md transition-transform duration-200' +
+        'fixed top-0 right-0 z-30 h-screen w-screen bg-dark-primary bg-opacity-50 text-white backdrop-blur-md transition-transform duration-200' +
         (open ? '' : ' translate-x-full')
       }
     >
@@ -74,12 +67,7 @@ const SideMenuItem: React.FC<ISideMenuItem> = ({
 }) => {
   return (
     <li className="SideMenuItem flex flex-col" onClick={onClick}>
-      <div
-        className={
-          'inline-flex self-end text-xs text-gray-600 ' +
-          Permanent_Marker_font.className
-        }
-      >{`${index}`}</div>
+      <div className="inline-flex self-end font-marker text-xs text-gray-600">{`${index}`}</div>
       <div className="inline-flex leading-none tracking-wider">
         <SideMenuItemPrefix></SideMenuItemPrefix>
         {text}
@@ -89,11 +77,5 @@ const SideMenuItem: React.FC<ISideMenuItem> = ({
 };
 
 const SideMenuItemPrefix: React.FC<{}> = () => {
-  return (
-    <span
-      className={Permanent_Marker_font.className + ' mr-1 text-teal-primary'}
-    >
-      #
-    </span>
-  );
+  return <span className="mr-1 font-marker text-teal-primary">#</span>;
 };

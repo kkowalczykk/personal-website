@@ -11,7 +11,10 @@ const Cursor: React.FC<{}> = () => {
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {
       setMousePosition({ x: ev.clientX, y: ev.clientY });
-      if (ev.target && ev.target instanceof HTMLElement) {
+      if (
+        (ev.target && ev.target instanceof HTMLElement) ||
+        ev.target instanceof SVGElement
+      ) {
         const cursor = window.getComputedStyle(ev.target)['cursor'];
         if (cursor === 'pointer') {
           setCursorVariant('hover');

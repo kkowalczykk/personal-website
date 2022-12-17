@@ -1,10 +1,3 @@
-import { Permanent_Marker } from '@next/font/google';
-
-const Permanent_Marker_font = Permanent_Marker({
-  weight: ['400'],
-  subsets: ['latin'],
-});
-
 const NavbarMenu: React.FC<{}> = () => {
   return (
     <ul className="flex flex-row items-center justify-center space-x-10">
@@ -38,12 +31,7 @@ const NavbarMenuItem: React.FC<INavbarMenuItem> = ({
         className="sticky-hover relative flex flex-col after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:rounded-full after:bg-yellow-primary after:transition-transform after:duration-200  hover:after:origin-bottom-left hover:after:scale-x-100"
         href={path}
       >
-        <div
-          className={
-            'inline-flex self-end text-xs text-gray-600 ' +
-            Permanent_Marker_font.className
-          }
-        >{`${index}`}</div>
+        <div className="inline-flex self-end font-marker text-xs text-gray-600">{`${index}`}</div>
         <div className="inline-flex font-bold leading-none tracking-wider">
           <SideMenuItemPrefix></SideMenuItemPrefix>
           {text}
@@ -54,11 +42,5 @@ const NavbarMenuItem: React.FC<INavbarMenuItem> = ({
 };
 
 const SideMenuItemPrefix: React.FC<{}> = () => {
-  return (
-    <span
-      className={Permanent_Marker_font.className + ' mr-1 text-teal-primary'}
-    >
-      #
-    </span>
-  );
+  return <span className="mr-1 font-marker text-teal-primary">#</span>;
 };
