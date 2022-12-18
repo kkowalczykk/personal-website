@@ -29,7 +29,7 @@ const Cursor: React.FC<{}> = () => {
     };
   }, []);
 
-  const variants = {
+  const bigVariants = {
     default: {
       opacity: 0.6,
       height: 30,
@@ -39,7 +39,7 @@ const Cursor: React.FC<{}> = () => {
       y: mousePosition.y - 15,
       transition: {
         type: 'spring',
-        mass: 0.2,
+        mass: 0.25,
       },
     },
     hover: {
@@ -48,10 +48,38 @@ const Cursor: React.FC<{}> = () => {
       width: 80,
       x: mousePosition.x - 40,
       y: mousePosition.y - 40,
-      backgroundColor: 'rgba(255, 255, 255, 0.3)',
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
       transition: {
         type: 'spring',
-        mass: 0.2,
+        mass: 0.25,
+      },
+    },
+  };
+  const smallVariants = {
+    default: {
+      opacity: 1,
+      height: 8,
+      width: 8,
+      backgroundColor: '#00E8B7',
+      x: mousePosition.x - 4,
+      y: mousePosition.y - 4,
+      transition: {
+        type: 'spring',
+        mass: 0.08,
+        duration: 0.1,
+      },
+    },
+    hover: {
+      opacity: 0,
+      height: 8,
+      width: 8,
+      x: mousePosition.x - 4,
+      y: mousePosition.y - 4,
+      backgroundColor: '#00E8B7',
+      transition: {
+        type: 'spring',
+        mass: 0.08,
+        duration: 0.1,
       },
     },
   };
@@ -65,7 +93,13 @@ const Cursor: React.FC<{}> = () => {
   return (
     <>
       <motion.div
-        variants={variants}
+        variants={bigVariants}
+        className="border-teal-primar pointer-events-none fixed left-0 top-0 z-10 rounded-full border border-teal-primary"
+        animate={cursorVariant}
+        transition={spring}
+      ></motion.div>
+      <motion.div
+        variants={smallVariants}
         className="border-teal-primar pointer-events-none fixed left-0 top-0 z-10 rounded-full border border-teal-primary"
         animate={cursorVariant}
         transition={spring}

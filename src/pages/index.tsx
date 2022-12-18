@@ -1,13 +1,17 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { BgGridlines } from '../components/backgrounds/Gridlines';
+import { BgShapes } from '../components/backgrounds/Shapes';
 import Container from '../components/container/Container';
 import MainLayout from '../components/layouts/MainLayout';
 import ScrollDown from '../components/scrollDown/ScrollDown';
 import { trpc } from '../utils/trpc';
+import useViewportSize from '../utils/useViewportSize';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
   // const hello = trpc.example.hello.useQuery({ text: 'from tRPC' });
+  const { width, height } = useViewportSize();
   return (
     <>
       <Head>
@@ -16,7 +20,7 @@ const Home: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="relative flex w-full flex-1 flex-col items-center justify-center text-center ">
+      <main className="relative flex w-full flex-1 flex-col items-center justify-center text-center">
         <header className="z-10 flex min-h-screen w-full flex-col items-center justify-center pt-20">
           <Container className="flex flex-1 flex-col items-center justify-center">
             <div className="mb-2 inline-flex items-center text-lg font-bold">
@@ -45,17 +49,8 @@ const Home: NextPageWithLayout = () => {
         </header>
 
         <section className="h-screen"></section>
-
-        <div className="bg-gridlines absolute top-0 left-0 h-full w-full">
-          <Container className="mx-auto flex h-full justify-between text-gray-600 opacity-20 lg:opacity-30">
-            <div className="h-full w-0.5 bg-current"></div>
-            <div className="hidden h-full w-0.5 bg-current lg:block"></div>
-            <div className="h-full w-0.5 bg-current"></div>
-            <div className="hidden h-full w-0.5 bg-current lg:block"></div>
-            <div className="h-full w-0.5 bg-current"></div>
-          </Container>
-        </div>
       </main>
+      {width >= 1024 && <BgShapes />}
     </>
   );
 };

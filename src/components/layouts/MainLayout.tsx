@@ -7,6 +7,7 @@ import SideMenu from '../sideMenu/SideMenu';
 import Cursor from '../cursor/Cursor';
 import SmoothScroll from '../../utils/SmoothScroll';
 import usePointerMatch from '../../utils/usePointerMatch';
+import { BgGridlines } from '../backgrounds/Gridlines';
 
 export const menuOpenAtom = atom(false);
 export const isPointerAtom = atom(false);
@@ -19,7 +20,7 @@ const font = Kanit({
 const Permanent_Marker_font = Permanent_Marker({
   weight: ['400'],
   subsets: ['latin'],
-  variable: '--font-marker'
+  variable: '--font-marker',
 });
 
 export interface IMainLayout {
@@ -42,16 +43,23 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   }, []);
 
   return (
-    <div className={'bg-dark-primary ' + `${font.className} ${Permanent_Marker_font.variable}`} ref={contentRef}>
-      {/* START Perspective Wrapper */}
+    <div
+      className={
+        'overflow-x-hidden bg-dark-primary ' +
+        `${font.className} ${Permanent_Marker_font.variable}`
+      }
+      ref={contentRef}
+    >
       <Navbar></Navbar>
+      <BgGridlines />
+      {/* START Perspective Wrapper */}
       <div
         className={
           `${styles.perspective}` +
           (menuOpen ? ` ${styles['perspective--active']}` : '')
         }
       >
-        <div className="MainLayout__body flex min-h-screen flex-col items-center justify-center bg-dark-primary text-white">
+        <div className="MainLayout__body flex min-h-screen flex-col items-center justify-center text-white">
           {children}
         </div>
       </div>
