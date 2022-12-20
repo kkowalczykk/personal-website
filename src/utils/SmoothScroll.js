@@ -14,9 +14,7 @@ export default function SmoothScroll(target, speed, smooth) {
 
 	function scrolled(e) {
 		e.preventDefault(); // disable default scrolling
-
 		var delta = normalizeWheelDelta(e)
-
 		pos += -delta * speed
 		pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
 

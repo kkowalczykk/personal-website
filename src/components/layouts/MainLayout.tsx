@@ -11,6 +11,7 @@ import { BgGridlines } from '../backgrounds/Gridlines';
 
 export const menuOpenAtom = atom(false);
 export const isPointerAtom = atom(false);
+export const updateScrollPosAtom = atom(null);
 
 const font = Kanit({
   weight: ['400', '700'],
@@ -32,13 +33,14 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const pointerMatch = usePointerMatch();
   const isPointer = useAtomValue(isPointerAtom);
+  const [updateScrollPos, setUpdateScrollPos] = useAtom(updateScrollPosAtom);
 
   useEffect(function () {
     // @ts-ignore
-    const smoothScroll = new SmoothScroll(document, 120, 12);
-    smoothScroll.init();
+    // const smoothScroll = new SmoothScroll(document, 120, 12);
+    // smoothScroll.init();
     return () => {
-      smoothScroll.destroy();
+      // smoothScroll.destroy();
     };
   }, []);
 
@@ -68,13 +70,6 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
       <SideMenu open={menuOpen} setOpen={setMenuOpen}></SideMenu>
 
       {isPointer && <Cursor></Cursor>}
-      {/* <style jsx global>
-        {`
-          * {
-            cursor: none;
-          }
-        `}
-      </style> */}
     </div>
   );
 };

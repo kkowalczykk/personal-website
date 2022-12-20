@@ -90,7 +90,7 @@ export const BgShapes: React.FC = () => {
   }, []);
 
   const recalculateStyles = () => {
-    const scale = 1 - window.scrollY / 5000;
+    const scale = 1 + window.scrollY / 5000;
     setScale(scale);
     const opacity = 1 - window.scrollY / 700;
     setOpacity(opacity);
