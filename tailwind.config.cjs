@@ -12,6 +12,7 @@ module.exports = {
         'yellow-primary': '#FBD155'
       },
       fontFamily: {
+        sans: ['var(--font-calibre)', ...fontFamily.sans],
         marker: ['var(--font-marker)', ...fontFamily.sans]
       }
     },

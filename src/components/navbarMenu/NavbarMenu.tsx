@@ -1,10 +1,14 @@
+import { MdMessage } from 'react-icons/md';
+
 const NavbarMenu: React.FC<{}> = () => {
   return (
     <ul className="flex flex-row items-center justify-center space-x-10">
-      <NavbarMenuItem text="Home" path="/" index="01"></NavbarMenuItem>
-      <NavbarMenuItem text="About me" path="#" index="02"></NavbarMenuItem>
-      <NavbarMenuItem text="Projects" path="#" index="03"></NavbarMenuItem>
-      <NavbarMenuItem text="Contact" path="#" index="04"></NavbarMenuItem>
+      <NavbarMenuItem text="About" path="#" index="01"></NavbarMenuItem>
+      <NavbarMenuItem text="Projects" path="#" index="02"></NavbarMenuItem>
+      <NavbarMenuItem text="Contact" path="#" index="03"></NavbarMenuItem>
+      <button className="select-none rounded-md border-2 border-teal-primary py-1.5 px-4 font-bold text-teal-primary transition-all hover:bg-teal-primary/10">
+        Send a message{' '}
+      </button>
     </ul>
   );
 };
@@ -28,13 +32,13 @@ const NavbarMenuItem: React.FC<INavbarMenuItem> = ({
   return (
     <li className="SideMenuItem" onClick={onClick}>
       <a
-        className="sticky-hover relative flex flex-col after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:rounded-full after:bg-yellow-primary after:transition-transform after:duration-200  hover:after:origin-bottom-left hover:after:scale-x-100"
+        className="sticky-hover relative flex flex-col after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:rounded-full after:bg-teal-primary after:transition-transform after:duration-200 hover:after:origin-bottom-left hover:after:scale-x-100"
         href={path}
       >
-        <div className="inline-flex self-end font-marker text-xs text-gray-600">{`${index}`}</div>
+        <div className="absolute top-0 right-0 inline-flex -translate-y-full self-end font-marker text-xs leading-none text-gray-600">{`${index}`}</div>
         <div className="inline-flex font-bold leading-none tracking-wider">
           <SideMenuItemPrefix></SideMenuItemPrefix>
-          {text}
+          <span>{text}</span>
         </div>
       </a>
     </li>

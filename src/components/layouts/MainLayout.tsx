@@ -13,7 +13,7 @@ export const isPointerAtom = atom(false);
 export const updateScrollPosAtom = atom(null);
 
 const font = Kanit({
-  weight: ['400', '700'],
+  weight: ['300', '400', '700'],
   subsets: ['latin-ext', 'latin'],
 });
 
@@ -33,15 +33,6 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   const pointerMatch = usePointerMatch();
   const isPointer = useAtomValue(isPointerAtom);
   const [updateScrollPos, setUpdateScrollPos] = useAtom(updateScrollPosAtom);
-
-  useEffect(function () {
-    // @ts-ignore
-    // const smoothScroll = new SmoothScroll(document, 120, 12);
-    // smoothScroll.init();
-    return () => {
-      // smoothScroll.destroy();
-    };
-  }, []);
 
   return (
     <div
