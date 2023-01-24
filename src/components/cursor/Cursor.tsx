@@ -39,7 +39,7 @@ const Cursor: React.FC<{}> = () => {
       y: mousePosition.y - 15,
       transition: {
         type: 'spring',
-        mass: 0.25,
+        mass: 0.05,
       },
     },
     hover: {
@@ -51,7 +51,7 @@ const Cursor: React.FC<{}> = () => {
       backgroundColor: 'rgba(255, 255, 255, 0.2)',
       transition: {
         type: 'spring',
-        mass: 0.25,
+        mass: 0.05,
       },
     },
   };
@@ -65,8 +65,8 @@ const Cursor: React.FC<{}> = () => {
       y: mousePosition.y - 4,
       transition: {
         type: 'spring',
-        mass: 0.08,
-        duration: 0.1,
+        mass: 0.02,
+        duration: 0.05,
       },
     },
     hover: {
@@ -78,8 +78,8 @@ const Cursor: React.FC<{}> = () => {
       backgroundColor: '#00E8B7',
       transition: {
         type: 'spring',
-        mass: 0.08,
-        duration: 0.1,
+        mass: 0.02,
+        duration: 0.05,
       },
     },
   };
