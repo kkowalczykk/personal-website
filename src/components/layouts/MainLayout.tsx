@@ -5,7 +5,6 @@ import styles from './MainLayout.module.css';
 import { atom, useAtom, useAtomValue } from 'jotai';
 import SideMenu from '../sideMenu/SideMenu';
 import Cursor from '../cursor/Cursor';
-import SmoothScroll from '../../utils/SmoothScroll';
 import usePointerMatch from '../../utils/usePointerMatch';
 import { BgGridlines } from '../backgrounds/Gridlines';
 
