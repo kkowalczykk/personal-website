@@ -10,7 +10,6 @@ import { BgGridlines } from '../backgrounds/Gridlines';
 
 export const menuOpenAtom = atom(false);
 export const isPointerAtom = atom(false);
-export const updateScrollPosAtom = atom(null);
 
 const font = Kanit({
   weight: ['300', '400', '700'],
@@ -32,7 +31,6 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const pointerMatch = usePointerMatch();
   const isPointer = useAtomValue(isPointerAtom);
-  const [updateScrollPos, setUpdateScrollPos] = useAtom(updateScrollPosAtom);
 
   return (
     <div

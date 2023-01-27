@@ -43,12 +43,12 @@ const Cursor: React.FC<{}> = () => {
       },
     },
     hover: {
-      opacity: 1,
+      opacity: 0,
       height: 80,
       width: 80,
       x: mousePosition.x - 40,
       y: mousePosition.y - 40,
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      backgroundColor: 'rgba(255, 255, 255, 0.0)',
       transition: {
         type: 'spring',
         mass: 0.05,

@@ -8,11 +8,11 @@ module.exports = {
     extend: {
       colors: {
         'dark-primary': '#0F1932',
+        'dark-secondary': '#0B1125',
         'teal-primary': '#00E8B7',
         'yellow-primary': '#FBD155'
       },
       fontFamily: {
-        sans: ['var(--font-calibre)', ...fontFamily.sans],
         marker: ['var(--font-marker)', ...fontFamily.sans]
       }
     },
