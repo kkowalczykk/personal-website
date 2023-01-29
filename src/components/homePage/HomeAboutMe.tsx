@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { MdAdd, MdLocationPin } from 'react-icons/md';
+import { MdAdd, MdArrowRight, MdLocationPin } from 'react-icons/md';
+import { Jobs } from '../jobs/Jobs';
 import { Section } from '../section/Section';
 import { SectionHeading } from '../section/SectionHeading';
 import homeStyles from './Home.module.css';
@@ -74,7 +75,9 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
           Professional experience
         </h4>
 
-        <div className="Jobs mt-5 space-y-6">
+        <Jobs />
+
+        {/* <div className="Jobs mt-5 space-y-6">
           <div className="JobBox flex flex-col">
             <div className="JobBox__main flex w-full items-center rounded-md bg-dark-secondary py-4 px-6">
               <div className="JobBox__main__content flex flex-1">
@@ -97,16 +100,40 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
                 <MdAdd />
               </button>
             </div>
-            <div className="JobBox__accordion mt-2 flex w-full items-center rounded-md bg-dark-secondary/50 py-4 px-6">
+            <div className="JobBox__accordion mt-2 flex w-full flex-col justify-center rounded-md bg-dark-secondary/50 py-4 px-6">
               <span className="JobBox__accordion__location inline-flex items-center font-bold">
                 <span className="mr-2 text-xl text-teal-primary">
                   <MdLocationPin />
                 </span>
                 Warsaw, PL
               </span>
+              <div className="JobBox__accordion__desc mt-4">
+                <ul className="list-none space-y-3 text-base">
+                  <li>
+                    <MdArrowRight className="mr-3 inline text-2xl text-teal-primary" />
+                    Creating user interfaces based on provided designs and
+                    wireframes.
+                  </li>
+                  <li>
+                    <MdArrowRight className="mr-3 inline text-2xl text-teal-primary" />
+                    Working with different technologies and content management
+                    systems such as Vue, Nuxt, WordPress, Joomla, Prestashop,
+                    Express.js etc.
+                  </li>
+                  <li>
+                    <MdArrowRight className="mr-3 inline text-2xl text-teal-primary" />
+                    Creating and maintaining websites and web applications.
+                  </li>
+                  <li>
+                    <MdArrowRight className="mr-3 inline text-2xl text-teal-primary" />
+                    Performance optimization and accessibility improvements of
+                    existing websites (SEO and Web Vitals).
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </Section>
   );

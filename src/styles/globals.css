@@ -23,7 +23,7 @@
 }
 
 html {
-  --size: 8px;
+  --size: 12px;
   --foreground-color: #999;
   --background-color: theme('colors.dark-primary');
 }
@@ -33,7 +33,9 @@ html::-webkit-scrollbar {
   height: var(--size);
 }
 html::-webkit-scrollbar-thumb {
+  border-radius: 10px;
   background: var(--foreground-color);
+  border: 3px solid var(--background-color);
 }
 html::-webkit-scrollbar-track {
   background: var(--background-color);

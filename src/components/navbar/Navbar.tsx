@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Burger from '../burger/Burger';
 import NavbarMenu from '../navbarMenu/NavbarMenu';
 
@@ -8,10 +8,12 @@ export interface INavbar {
 }
 
 const Navbar: React.FC<INavbar> = ({ children }) => {
+  const navbarRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     let scrollPos = window.pageYOffset;
     const navbarScrollEffect = (event: Event) => {
-      const navbar = document.querySelector('.navbar');
+      const navbar = navbarRef.current;
       const navbarHeight = navbar?.clientHeight;
 
       let currentScrollPos = window.pageYOffset;
@@ -52,7 +54,10 @@ const Navbar: React.FC<INavbar> = ({ children }) => {
   }, []);
 
   return (
-    <nav className="navbar fixed left-0 top-0 z-30 flex w-full flex-1 flex-row items-center justify-between px-5 text-center text-white transition-all duration-300 lg:px-20">
+    <nav
+      ref={navbarRef}
+      className="navbar fixed left-0 top-0 z-30 flex w-full flex-1 flex-row items-center justify-between px-5 text-center text-white transition-all duration-300 lg:px-20"
+    >
       <div className="container mx-auto flex justify-between py-4">
         <div className="flex flex-row items-center justify-center">
           <Link href="/">

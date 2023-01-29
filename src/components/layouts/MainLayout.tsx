@@ -12,7 +12,7 @@ export const menuOpenAtom = atom(false);
 export const isPointerAtom = atom(false);
 
 const font = Kanit({
-  weight: ['300', '400', '700'],
+  weight: ['300', '400', '600', '700'],
   subsets: ['latin-ext', 'latin'],
 });
 
