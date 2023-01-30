@@ -72,8 +72,8 @@ export const JobBox: React.FC<IJobBox> = ({
   return (
     <div className="JobBox flex flex-col">
       <div className="JobBox__main flex w-full items-center rounded-md bg-dark-secondary py-4 px-6">
-        <div className="JobBox__main__content flex flex-1">
-          <h5 className="inline-flex flex-1 text-xl">
+        <div className="JobBox__main__content flex flex-1 items-center">
+          <h5 className="inline-flex flex-1 items-center text-xl">
             <span className="font-bold">{jobName}</span>
             <span className="mx-1 font-sans font-medium text-orange-primary">
               @
@@ -86,7 +86,7 @@ export const JobBox: React.FC<IJobBox> = ({
               {jobCompany.name}
             </a>
           </h5>
-          <span className="">
+          <span className="font-mono text-sm">
             {getStringInterval(jobStartDate, jobEndDate)}
           </span>
         </div>
@@ -107,7 +107,7 @@ export const JobBox: React.FC<IJobBox> = ({
             {technologies.map((technology) => (
               <div
                 key={technology.name}
-                className="rounded-full bg-orange-primary/90 px-4 py-1 text-sm font-semibold text-dark-primary"
+                className="rounded-full bg-orange-primary/90 px-4 py-1 font-mono text-sm font-semibold text-dark-primary"
               >
                 {technology.name}
               </div>

@@ -13,7 +13,8 @@ module.exports = {
         'yellow-primary': '#FBD155'
       },
       fontFamily: {
-        marker: ['var(--font-marker)', ...fontFamily.sans]
+        marker: ['var(--font-marker)', ...fontFamily.sans],
+        mono: ['var(--font-fira-mono)', ...fontFamily.mono],
       }
     },
   },

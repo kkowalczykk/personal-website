@@ -6,7 +6,7 @@ const NavbarMenu: React.FC<{}> = () => {
       <NavbarMenuItem text="About" path="#" index="01"></NavbarMenuItem>
       <NavbarMenuItem text="Projects" path="#" index="02"></NavbarMenuItem>
       <NavbarMenuItem text="Contact" path="#" index="03"></NavbarMenuItem>
-      <button className="select-none rounded-md border-2 border-orange-primary py-1.5 px-4 font-bold text-orange-primary transition-all hover:bg-orange-primary/10">
+      <button className="select-none  rounded-md border-2 border-orange-primary py-1.5 px-4 text-sm font-bold text-orange-primary transition-all hover:bg-orange-primary/10">
         Send a message{' '}
       </button>
     </ul>

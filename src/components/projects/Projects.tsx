@@ -12,7 +12,11 @@ export const Projects: React.FC<IProjects> = ({ children }) => {
             Obstaw.se is a web application where you can bet on football matches
             with your friends. It is a project that I created in cooperation
             with my{' '}
-            <a href="https://github.com/hubskysolutions" target="_blank">
+            <a
+              href="https://github.com/hubskysolutions"
+              target="_blank"
+              className="text-orange-primary"
+            >
               friend
             </a>
             . Our goal was to create a betting platform for groups of friends,
@@ -22,6 +26,14 @@ export const Projects: React.FC<IProjects> = ({ children }) => {
           <p>
             Available matches and results are synchronized with an external data
             source every minute, so the results are always up to date.
+          </p>
+          <p>
+            Project is still{' '}
+            <span className="underline decoration-orange-primary">
+              in development
+            </span>
+            , but you can already create an account and start betting with your
+            friends.
           </p>
         </div>
       ),
@@ -45,11 +57,27 @@ export const Projects: React.FC<IProjects> = ({ children }) => {
       description: (
         <div className="space-y-2 text-base font-thin">
           <p>
-            This project is a part of my master's thesis. The goal of the
-            project was to create a system that would allow to monitor the
-            status of routers and switches in a network. The system consists of
-            a web application that allows to view the status of devices and
-            setup notifications for each device.
+            This project is a part of my master's thesis, which I have written
+            with my{' '}
+            <a
+              href="https://github.com/hubskysolutions"
+              target="_blank"
+              className="text-orange-primary"
+            >
+              friend
+            </a>
+            . The goal of the project was to create a system that would allow to
+            monitor the status of routers and switches in a network. The system
+            consists of a web application that allows to view the status of
+            devices and setup notifications for each device.
+          </p>
+          <p>
+            Communication with devices is done using SNMP protocol. The system
+            is able to monitor the status of devices, such as CPU usage, memory
+            usage, disk usage, etc. It is also able to monitor the status of
+            interfaces, such as the number of packets sent and received, the
+            number of errors, etc. Data are shared betweend services using
+            Apache Kafka.
           </p>
         </div>
       ),

@@ -46,3 +46,8 @@ html{
   scrollbar-color: var(--foreground-color) var(--background-color);
   scroll-behavior: smooth;
 }
+
+.text-stroke {
+  -webkit-text-stroke: 1px currentColor;
+  -webkit-text-fill-color: transparent;
+}

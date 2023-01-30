@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import Navbar from '../navbar/Navbar';
-import { Kanit, Permanent_Marker } from '@next/font/google';
+import { Kanit, Permanent_Marker, Fira_Mono } from '@next/font/google';
 import styles from './MainLayout.module.css';
 import { atom, useAtom, useAtomValue } from 'jotai';
 import SideMenu from '../sideMenu/SideMenu';
@@ -22,6 +22,12 @@ const Permanent_Marker_font = Permanent_Marker({
   variable: '--font-marker',
 });
 
+const Fira_Mono_font = Fira_Mono({
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-fira-mono',
+});
+
 export interface IMainLayout {
   children: React.ReactNode;
 }
@@ -36,7 +42,7 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
     <div
       className={
         'overflow-x-hidden bg-dark-primary ' +
-        `${font.className} ${Permanent_Marker_font.variable}`
+        `${font.className} ${Permanent_Marker_font.variable} ${Fira_Mono_font.variable}`
       }
       ref={contentRef}
     >
