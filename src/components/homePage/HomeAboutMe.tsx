@@ -53,11 +53,11 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
             </p>
           </div>
           <div className="ImageWrapper relative">
-            <div className="absolute inset-0 -z-10 translate-x-5 translate-y-5 rounded-xl border-2 border-teal-primary"></div>
-            <div className="absolute inset-0 translate-x-10 translate-y-10 rounded-xl border-2 border-teal-primary opacity-30"></div>
-            <div className="relative z-10 h-[318px] w-[300px] rounded-xl bg-teal-primary/50 transition-colors duration-300 hover:bg-transparent">
+            <div className="absolute inset-0 -z-10 translate-x-5 translate-y-5 rounded-md border-2 border-teal-primary"></div>
+            <div className="absolute inset-0 translate-x-10 translate-y-10 rounded-md border-2 border-teal-primary opacity-30"></div>
+            <div className="relative z-10 h-[318px] w-[300px] rounded-md bg-teal-primary/50 transition-colors duration-300 hover:bg-transparent">
               <div
-                className={`${homeStyles.aboutImageColorProvider} overflow-hidden rounded-xl`}
+                className={`${homeStyles.aboutImageColorProvider} overflow-hidden rounded-md`}
               >
                 <Image
                   src={'/kkowalczyk.jpg'}

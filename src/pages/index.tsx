@@ -4,10 +4,9 @@ import { BgGridlines } from '../components/backgrounds/Gridlines';
 import { BgShapes } from '../components/backgrounds/Shapes';
 import Container from '../components/container/Container';
 import { HomeAboutMe } from '../components/homePage/HomeAboutMe';
+import { HomeExpertise } from '../components/homePage/HomeExpertise';
 import { HomeHeader } from '../components/homePage/HomeHeader';
 import MainLayout from '../components/layouts/MainLayout';
-import ScrollDown from '../components/scrollDown/ScrollDown';
-import { trpc } from '../utils/trpc';
 import useViewportSize from '../utils/useViewportSize';
 import { NextPageWithLayout } from './_app';
 
@@ -25,6 +24,9 @@ const Home: NextPageWithLayout = () => {
       <main className="relative flex w-full flex-1 flex-col items-center justify-center text-center">
         <HomeHeader />
         <HomeAboutMe />
+        <HomeExpertise />
+
+        <div className="temp h-[500px]"></div>
       </main>
       {/* {width >= 1024 && <BgShapes />} */}
     </>

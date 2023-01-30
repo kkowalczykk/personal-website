@@ -41,7 +41,7 @@ export const SectionHeading: React.FC<ISectionHeading> = ({
         </span>
       )}
       <h2 className="font-bold text-white">{title}</h2>
-      <div className="ml-5 h-[1px] max-w-[350px] flex-1 bg-teal-primary"></div>
+      <div className="ml-5 h-[1px] max-w-[350px] flex-1 rounded-full bg-teal-primary"></div>
     </motion.div>
   );
 };
