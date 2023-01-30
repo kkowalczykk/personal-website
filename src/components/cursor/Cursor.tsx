@@ -60,7 +60,7 @@ const Cursor: React.FC<{}> = () => {
       opacity: 1,
       height: 8,
       width: 8,
-      backgroundColor: '#00E8B7',
+      backgroundColor: '#f05b16',
       x: mousePosition.x - 4,
       y: mousePosition.y - 4,
       transition: {
@@ -75,7 +75,7 @@ const Cursor: React.FC<{}> = () => {
       width: 8,
       x: mousePosition.x - 4,
       y: mousePosition.y - 4,
-      backgroundColor: '#00E8B7',
+      backgroundColor: '#f05b16',
       transition: {
         type: 'spring',
         mass: 0.02,
@@ -94,13 +94,13 @@ const Cursor: React.FC<{}> = () => {
     <>
       <motion.div
         variants={bigVariants}
-        className="border-teal-primar pointer-events-none fixed left-0 top-0 z-10 rounded-full border border-teal-primary"
+        className="border-teal-primar border-orange-primary pointer-events-none fixed left-0 top-0 z-10 rounded-full border"
         animate={cursorVariant}
         transition={spring}
       ></motion.div>
       <motion.div
         variants={smallVariants}
-        className="border-teal-primar pointer-events-none fixed left-0 top-0 z-10 rounded-full border border-teal-primary"
+        className="border-teal-primar border-orange-primary pointer-events-none fixed left-0 top-0 z-10 rounded-full border"
         animate={cursorVariant}
         transition={spring}
       ></motion.div>

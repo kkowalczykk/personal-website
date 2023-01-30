@@ -39,10 +39,10 @@ export const HomeHeader: React.FC<IHomeHeader> = ({ children }) => {
 
         <h1 className="mb-2 text-5xl font-bold">
           I'm Karol
-          <span className="animate-blink ml-0.5 text-teal-primary">.</span>
+          <span className="animate-blink ml-0.5 text-orange-primary">.</span>
         </h1>
 
-        <h2 className="font-marker text-2xl font-bold text-teal-primary">
+        <h2 className="font-marker text-2xl font-bold text-orange-primary">
           I build stuff for the web.
         </h2>
       </Container>

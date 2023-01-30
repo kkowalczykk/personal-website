@@ -15,9 +15,9 @@ const Burger: React.FC<IBurger> = ({ children, className, onClick }) => {
         (className ? ` ${className}` : '')
       }
     >
-      <span className="h-0.5 w-3/4 rounded-full bg-teal-primary"></span>
-      <span className="h-0.5 w-full rounded-full bg-teal-primary"></span>
-      <span className="h-0.5 w-3/4 rounded-full bg-teal-primary"></span>
+      <span className="h-0.5 w-3/4 rounded-full bg-orange-primary"></span>
+      <span className="h-0.5 w-full rounded-full bg-orange-primary"></span>
+      <span className="h-0.5 w-3/4 rounded-full bg-orange-primary"></span>
     </button>
   );
 };

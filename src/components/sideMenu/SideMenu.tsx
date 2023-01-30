@@ -24,7 +24,7 @@ const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
       <Container className="flex h-full flex-col">
         <div className="SideMenu__header py-4">
           <button
-            className="text-4xl text-teal-primary"
+            className="text-4xl text-orange-primary"
             onClick={() => setOpen(false)}
           >
             <MdClose></MdClose>
@@ -77,5 +77,5 @@ const SideMenuItem: React.FC<ISideMenuItem> = ({
 };
 
 const SideMenuItemPrefix: React.FC<{}> = () => {
-  return <span className="mr-1 font-marker text-teal-primary">#</span>;
+  return <span className="mr-1 font-marker text-orange-primary">#</span>;
 };

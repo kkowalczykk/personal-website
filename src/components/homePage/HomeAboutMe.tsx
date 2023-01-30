@@ -45,7 +45,7 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
               you have a project that I can help with, don't hesitate to{' '}
               <a
                 href="#contact"
-                className="font-bold text-teal-primary transition-all duration-200 hover:underline"
+                className="text-orange-primary font-bold transition-all duration-200 hover:underline"
               >
                 contact me
               </a>
@@ -53,9 +53,9 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
             </p>
           </div>
           <div className="ImageWrapper relative">
-            <div className="absolute inset-0 -z-10 translate-x-5 translate-y-5 rounded-md border-2 border-teal-primary"></div>
-            <div className="absolute inset-0 translate-x-10 translate-y-10 rounded-md border-2 border-teal-primary opacity-30"></div>
-            <div className="relative z-10 h-[318px] w-[300px] rounded-md bg-teal-primary/70 transition-colors duration-300 hover:bg-transparent">
+            <div className="border-orange-primary absolute inset-0 -z-10 translate-x-5 translate-y-5 rounded-md border-2"></div>
+            <div className="border-orange-primary absolute inset-0 translate-x-10 translate-y-10 rounded-md border-2 opacity-30"></div>
+            <div className="bg-orange-primary/70 relative z-10 h-[318px] w-[300px] rounded-md transition-colors duration-300 hover:bg-transparent">
               <div
                 className={`${homeStyles.ImageColorProvider} overflow-hidden rounded-md`}
               >
@@ -71,7 +71,7 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
         </div>
       </div>
       <div className="ProfessionalExperience mt-20 px-10 text-left">
-        <h4 className="text-2xl font-bold underline decoration-teal-primary">
+        <h4 className="decoration-orange-primary text-2xl font-bold underline">
           Professional experience
         </h4>
 
@@ -83,26 +83,26 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
               <div className="JobBox__main__content flex flex-1">
                 <h5 className="inline-flex flex-1 text-xl">
                   <span className="font-bold">Web Developer </span>
-                  <span className="mx-1 font-sans font-medium text-teal-primary">
+                  <span className="mx-1 font-sans font-medium text-orange-primary">
                     @
                   </span>{' '}
                   <a
                     href="https://resultmedia.pl"
                     target="_blank"
-                    className="text-teal-primary  hover:underline"
+                    className="text-orange-primary  hover:underline"
                   >
                     ResultMedia
                   </a>
                 </h5>
                 <span className="">November 2020 - November 2022</span>
               </div>
-              <button className="JobBox__main__button ml-4 block rounded-full border border-teal-primary p-3 text-xl transition-all hover:bg-teal-primary/20">
+              <button className="JobBox__main__button ml-4 block rounded-full border border-orange-primary p-3 text-xl transition-all hover:bg-orange-primary/20">
                 <MdAdd />
               </button>
             </div>
             <div className="JobBox__accordion mt-2 flex w-full flex-col justify-center rounded-md bg-dark-secondary/50 py-4 px-6">
               <span className="JobBox__accordion__location inline-flex items-center font-bold">
-                <span className="mr-2 text-xl text-teal-primary">
+                <span className="mr-2 text-xl text-orange-primary">
                   <MdLocationPin />
                 </span>
                 Warsaw, PL
@@ -110,22 +110,22 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
               <div className="JobBox__accordion__desc mt-4">
                 <ul className="list-none space-y-3 text-base">
                   <li>
-                    <MdArrowRight className="mr-3 inline text-2xl text-teal-primary" />
+                    <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
                     Creating user interfaces based on provided designs and
                     wireframes.
                   </li>
                   <li>
-                    <MdArrowRight className="mr-3 inline text-2xl text-teal-primary" />
+                    <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
                     Working with different technologies and content management
                     systems such as Vue, Nuxt, WordPress, Joomla, Prestashop,
                     Express.js etc.
                   </li>
                   <li>
-                    <MdArrowRight className="mr-3 inline text-2xl text-teal-primary" />
+                    <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
                     Creating and maintaining websites and web applications.
                   </li>
                   <li>
-                    <MdArrowRight className="mr-3 inline text-2xl text-teal-primary" />
+                    <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
                     Performance optimization and accessibility improvements of
                     existing websites (SEO and Web Vitals).
                   </li>

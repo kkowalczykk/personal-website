@@ -137,7 +137,7 @@ const ScrollDown: React.FC<{}> = () => {
             animate={footprintControls}
             initial="hidden"
             style={{ strokeDashoffset: 1 }}
-            stroke="#00E8B7"
+            stroke="#f05b16"
             fill="none"
             strokeWidth="2"
             d={
@@ -157,7 +157,7 @@ const ScrollDown: React.FC<{}> = () => {
             transition={{
               duration: 0.4,
             }}
-            stroke="#00E8B7"
+            stroke="#f05b16"
             fill="none"
             strokeWidth="2"
             d={
@@ -170,7 +170,7 @@ const ScrollDown: React.FC<{}> = () => {
             transition={{
               duration: 0.4,
             }}
-            stroke="#00E8B7"
+            stroke="#f05b16"
             strokeWidth="2"
             fill="none"
             d={'M29.548 47.9237L35.957 54.4177L42.452 47.9237'}

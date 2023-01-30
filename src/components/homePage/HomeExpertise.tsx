@@ -45,11 +45,11 @@ export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
       <div className="Technologies">
         <h3 className="mt-16 text-2xl font-semibold">
           Some of the{' '}
-          <span className="relative after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-2 after:w-full after:bg-teal-primary/70">
+          <span className="relative after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-2 after:w-full after:bg-orange-primary/70">
             tools
           </span>{' '}
-          <span className="text-teal-primary">&</span>{' '}
-          <span className="relative after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-2 after:w-full after:bg-teal-primary/70">
+          <span className="text-orange-primary">&</span>{' '}
+          <span className="relative after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-2 after:w-full after:bg-orange-primary/70">
             technologies
           </span>{' '}
           I've worked with:
@@ -101,7 +101,7 @@ const HomeExpertiseListItem: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
 }) => {
   return (
     <li>
-      <MdArrowRight className="mr-3 inline text-2xl text-teal-primary" />
+      <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
       {children}
     </li>
   );
@@ -137,11 +137,11 @@ const HomeExpertiseTile: React.FC<IHomeExpertiseTile> = ({
         <h4 className="text-xl font-semibold">{title}</h4>
       </div>
       <div className="Tile__content mt-4 flex w-full flex-col items-start">
-        <span className="font-mono text-teal-primary">{'<>'}</span>
-        <div className="my-3 ml-2 border-l-2 border-teal-primary/40 px-3 pl-6 text-justify text-base">
+        <span className="font-mono text-orange-primary">{'<>'}</span>
+        <div className="my-3 ml-2 border-l-2 border-orange-primary/40 px-3 pl-6 text-justify text-base">
           {children}
         </div>
-        <span className="font-mono text-teal-primary">{'</>'}</span>
+        <span className="font-mono text-orange-primary">{'</>'}</span>
       </div>
     </div>
   );

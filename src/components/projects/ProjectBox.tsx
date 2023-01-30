@@ -24,7 +24,7 @@ export const ProjectBox: React.FC<IProjectBox> = ({
     <div className={`ProjectBox flex ${reversed ? 'flex-row-reverse' : ''}`}>
       <div className="ProjectBox__ImageWrapper relative z-0 h-[310px] flex-1">
         <div
-          className={`ImageContainer absolute top-0 h-full w-[112%] overflow-hidden rounded-md bg-teal-primary/70 shadow-md transition-all hover:bg-transparent ${
+          className={`ImageContainer bg-orange-primary/70 absolute top-0 h-full w-[112%] overflow-hidden rounded-md shadow-md transition-all hover:bg-transparent ${
             reversed ? 'right-0' : 'left-0'
           }`}
         >
@@ -45,7 +45,7 @@ export const ProjectBox: React.FC<IProjectBox> = ({
           reversed ? 'text-left' : 'text-right'
         }`}
       >
-        <span className="font-marker text-sm leading-3 text-teal-primary">
+        <span className="text-orange-primary font-marker text-sm leading-3">
           PROJECT
         </span>
         <h3 className="ProjectBox__Name text-3xl font-bold">{name}</h3>

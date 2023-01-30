@@ -75,13 +75,13 @@ export const JobBox: React.FC<IJobBox> = ({
         <div className="JobBox__main__content flex flex-1">
           <h5 className="inline-flex flex-1 text-xl">
             <span className="font-bold">{jobName}</span>
-            <span className="mx-1 font-sans font-medium text-teal-primary">
+            <span className="mx-1 font-sans font-medium text-orange-primary">
               @
             </span>{' '}
             <a
               href={jobCompany.url}
               target="_blank"
-              className="text-teal-primary  hover:underline"
+              className="text-orange-primary  hover:underline"
             >
               {jobCompany.name}
             </a>
@@ -92,7 +92,7 @@ export const JobBox: React.FC<IJobBox> = ({
         </div>
         <button
           onClick={toggleAccordion}
-          className="JobBox__main__button ml-4 block rounded-full border border-teal-primary p-3 text-xl transition-all hover:bg-teal-primary/20"
+          className="JobBox__main__button ml-4 block rounded-full border border-orange-primary p-3 text-xl transition-all hover:bg-orange-primary/20"
         >
           {isExpanded ? <MdRemove /> : <MdAdd />}
         </button>
@@ -107,7 +107,7 @@ export const JobBox: React.FC<IJobBox> = ({
             {technologies.map((technology) => (
               <div
                 key={technology.name}
-                className="rounded-full bg-teal-primary/90 px-4 py-1 text-sm font-semibold text-dark-primary"
+                className="rounded-full bg-orange-primary/90 px-4 py-1 text-sm font-semibold text-dark-primary"
               >
                 {technology.name}
               </div>
