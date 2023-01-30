@@ -1,0 +1,7 @@
+.ImageColorProvider {
+    filter: grayscale(100%) contrast(1) brightness(80%);
+    mix-blend-mode: multiply;
+}
+.ImageColorProvider:hover {
+    filter: grayscale(0%) contrast(1) brightness(100%);
+}

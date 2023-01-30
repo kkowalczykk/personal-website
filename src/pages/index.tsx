@@ -6,6 +6,7 @@ import Container from '../components/container/Container';
 import { HomeAboutMe } from '../components/homePage/HomeAboutMe';
 import { HomeExpertise } from '../components/homePage/HomeExpertise';
 import { HomeHeader } from '../components/homePage/HomeHeader';
+import { HomeProjects } from '../components/homePage/HomeProjects';
 import MainLayout from '../components/layouts/MainLayout';
 import useViewportSize from '../utils/useViewportSize';
 import { NextPageWithLayout } from './_app';
@@ -25,6 +26,7 @@ const Home: NextPageWithLayout = () => {
         <HomeHeader />
         <HomeAboutMe />
         <HomeExpertise />
+        <HomeProjects />
 
         <div className="temp h-[500px]"></div>
       </main>
