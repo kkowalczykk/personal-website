@@ -3,9 +3,18 @@ import { MdMessage } from 'react-icons/md';
 const NavbarMenu: React.FC<{}> = () => {
   return (
     <ul className="flex flex-row items-center justify-center space-x-10">
-      <NavbarMenuItem text="About" path="#" index="01"></NavbarMenuItem>
-      <NavbarMenuItem text="Projects" path="#" index="02"></NavbarMenuItem>
-      <NavbarMenuItem text="Contact" path="#" index="03"></NavbarMenuItem>
+      <NavbarMenuItem text="About" path="#about-me" index="01"></NavbarMenuItem>
+      <NavbarMenuItem
+        text="Expertise"
+        path="#my-expertise"
+        index="02"
+      ></NavbarMenuItem>
+      <NavbarMenuItem
+        text="Projects"
+        path="#projects"
+        index="03"
+      ></NavbarMenuItem>
+      <NavbarMenuItem text="Contact" path="#" index="04"></NavbarMenuItem>
       <button className="select-none  rounded-md border-2 border-orange-primary py-1.5 px-4 text-sm font-bold text-orange-primary transition-all hover:bg-orange-primary/10">
         Send a message{' '}
       </button>

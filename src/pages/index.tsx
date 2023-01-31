@@ -4,6 +4,7 @@ import { BgGridlines } from '../components/backgrounds/Gridlines';
 import { BgShapes } from '../components/backgrounds/Shapes';
 import Container from '../components/container/Container';
 import { HomeAboutMe } from '../components/homePage/HomeAboutMe';
+import { HomeContact } from '../components/homePage/HomeContact';
 import { HomeExpertise } from '../components/homePage/HomeExpertise';
 import { HomeHeader } from '../components/homePage/HomeHeader';
 import { HomeProjects } from '../components/homePage/HomeProjects';
@@ -27,10 +28,13 @@ const Home: NextPageWithLayout = () => {
         <HomeAboutMe />
         <HomeExpertise />
         <HomeProjects />
-
-        <div className="temp h-[500px]"></div>
+        <HomeContact />
+        <footer className="w-full">
+          <Container className="font-base bg-dark-primary py-4 text-sm">
+            <p>Designed & built by Karol Kowalczyk. </p>
+          </Container>
+        </footer>
       </main>
-      {/* {width >= 1024 && <BgShapes />} */}
     </>
   );
 };

@@ -94,13 +94,13 @@ const Cursor: React.FC<{}> = () => {
     <>
       <motion.div
         variants={bigVariants}
-        className="border-teal-primar border-orange-primary pointer-events-none fixed left-0 top-0 z-10 rounded-full border"
+        className="border-teal-primar pointer-events-none fixed left-0 top-0 z-40 rounded-full border border-orange-primary"
         animate={cursorVariant}
         transition={spring}
       ></motion.div>
       <motion.div
         variants={smallVariants}
-        className="border-teal-primar border-orange-primary pointer-events-none fixed left-0 top-0 z-10 rounded-full border"
+        className="border-teal-primar pointer-events-none fixed left-0 top-0 z-40 rounded-full border border-orange-primary"
         animate={cursorVariant}
         transition={spring}
       ></motion.div>
