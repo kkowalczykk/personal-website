@@ -17,8 +17,8 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
   return (
     <Section heading="About me" sectionIndex={'01'}>
       <div>
-        <div className="flex items-center space-x-20">
-          <div className="TextWrapper space-y-4 text-left leading-relaxed text-slate-300">
+        <div className="flex flex-col items-center max-lg:space-y-10 lg:flex-row lg:space-x-20">
+          <div className="TextWrapper space-y-4 text-justify leading-relaxed text-slate-300 lg:text-left">
             <p>
               Hi, I am Karol Kowalczyk, a web developer from Poland. I am
               currently working as a freelancer and looking for new
@@ -52,10 +52,10 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
               !
             </p>
           </div>
-          <div className="ImageWrapper relative">
-            <div className="absolute inset-0 -z-10 translate-x-5 translate-y-5 rounded-md border-2 border-orange-primary"></div>
-            <div className="absolute inset-0 translate-x-10 translate-y-10 rounded-md border-2 border-orange-primary opacity-30"></div>
-            <div className="relative z-10 h-[318px] w-[300px] rounded-md bg-orange-primary/70 transition-colors duration-300 hover:bg-transparent">
+          <div className="ImageWrapper relative max-w-full lg:max-[1200px]:-translate-x-6">
+            <div className="absolute inset-0 -z-10 translate-x-3 translate-y-3 rounded-md border-2 border-orange-primary xl:translate-x-5 xl:translate-y-5"></div>
+            <div className="absolute inset-0 translate-x-6 translate-y-6 rounded-md border-2 border-orange-primary opacity-30 xl:translate-x-10 xl:translate-y-10"></div>
+            <div className="relative z-10 w-72 max-w-full rounded-md bg-orange-primary/70 transition-colors duration-300 hover:bg-transparent max-sm:aspect-square sm:h-[318px] sm:w-[300px]">
               <div
                 className={`${homeStyles.ImageColorProvider} overflow-hidden rounded-md`}
               >
@@ -63,14 +63,14 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
                   src={'/kkowalczyk.jpg'}
                   alt="Karol Kowalczyk - headshot"
                   fill={true}
-                  className="z-10"
+                  className="z-10 object-cover"
                 ></Image>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="ProfessionalExperience mt-20 px-10 text-left">
+      <div className="ProfessionalExperience mt-20 text-left lg:px-10">
         <h4 className="text-2xl font-bold text-slate-200 underline decoration-orange-primary">
           Professional experience
         </h4>

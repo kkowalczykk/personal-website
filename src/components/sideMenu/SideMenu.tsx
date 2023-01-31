@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import useClickOutside from '../../utils/useClickOutside';
 import Container from '../container/Container';
 import { MdClose } from 'react-icons/md';
+import Link from 'next/link';
 
 export interface ISideMenu extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -17,7 +18,7 @@ const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
     <div
       ref={sideMenuRef}
       className={
-        'fixed top-0 right-0 z-30 h-screen w-screen bg-dark-primary bg-opacity-50 text-white backdrop-blur-md transition-transform duration-200' +
+        'fixed top-0 right-0 z-30 h-screen w-screen bg-dark-primary bg-opacity-70 text-white backdrop-blur-md transition-transform duration-200' +
         (open ? '' : ' translate-x-full')
       }
     >
@@ -32,15 +33,27 @@ const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
         </div>
         <ul className="SideMenu__main flex flex-1 flex-col items-center justify-center space-y-8 text-2xl">
           <SideMenuItem
-            text="Home"
-            path="/"
+            text="About"
+            path="#about-me"
             index="01"
             onClick={handleMenuItemClick}
           ></SideMenuItem>
           <SideMenuItem
-            text="About"
-            path="/about"
+            text="Expertise"
+            path="#expertise"
             index="02"
+            onClick={handleMenuItemClick}
+          ></SideMenuItem>
+          <SideMenuItem
+            text="Projects"
+            path="#projects"
+            index="03"
+            onClick={handleMenuItemClick}
+          ></SideMenuItem>
+          <SideMenuItem
+            text="Contact"
+            path="#contact"
+            index="03"
             onClick={handleMenuItemClick}
           ></SideMenuItem>
         </ul>
@@ -52,8 +65,8 @@ const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
 export default SideMenu;
 
 interface ISideMenuItem extends React.HTMLAttributes<HTMLLIElement> {
-  text: String;
-  path: String;
+  text: string;
+  path: string;
   index?: string;
   onClick?: () => void;
 }
@@ -68,10 +81,10 @@ const SideMenuItem: React.FC<ISideMenuItem> = ({
   return (
     <li className="SideMenuItem flex flex-col" onClick={onClick}>
       <div className="inline-flex self-end font-marker text-xs text-gray-600">{`${index}`}</div>
-      <div className="inline-flex leading-none tracking-wider">
+      <a className="inline-flex leading-none tracking-wider" href={path}>
         <SideMenuItemPrefix></SideMenuItemPrefix>
         {text}
-      </div>
+      </a>
     </li>
   );
 };

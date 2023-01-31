@@ -14,8 +14,21 @@ const NavbarMenu: React.FC<{}> = () => {
         path="#projects"
         index="03"
       ></NavbarMenuItem>
-      <NavbarMenuItem text="Contact" path="#" index="04"></NavbarMenuItem>
-      <button className="select-none  rounded-md border-2 border-orange-primary py-1.5 px-4 text-sm font-bold text-orange-primary transition-all hover:bg-orange-primary/10">
+      <NavbarMenuItem
+        text="Contact"
+        path="#contact"
+        index="04"
+      ></NavbarMenuItem>
+      <button
+        onClick={() =>
+          scrollTo({
+            // @ts-ignore
+            top: document.querySelector('#contact')?.offsetTop,
+            behavior: 'smooth',
+          })
+        }
+        className="select-none  rounded-md border-2 border-orange-primary py-1.5 px-4 text-sm font-bold text-orange-primary transition-all hover:bg-orange-primary/10"
+      >
         Send a message{' '}
       </button>
     </ul>

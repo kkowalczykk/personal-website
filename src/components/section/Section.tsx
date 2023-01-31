@@ -19,7 +19,12 @@ export const Section: React.FC<ISection> = ({
 }) => {
   const htmlId = id ? id : heading.toLowerCase().replace(' ', '-');
   return (
-    <section className={`mt-20 w-full pt-20 ${className}`} id={htmlId}>
+    <section
+      className={`mt-10 w-full pt-10 sm:mt-20 sm:pt-20 ${
+        className ? className : ''
+      }`}
+      id={htmlId}
+    >
       <Container>
         <div className="innerContainer w-full xl:px-14">
           <SectionHeading
@@ -27,7 +32,7 @@ export const Section: React.FC<ISection> = ({
             sectionIndex={sectionIndex}
             centered={centeredHeading}
           />
-          <div className="section-content mt-10 text-lg font-light">
+          <div className="section-content mt-10 text-base font-light lg:text-lg">
             {children}
           </div>
         </div>

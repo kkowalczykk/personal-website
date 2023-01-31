@@ -135,7 +135,7 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
   };
 
   return (
-    <form className="ContactForm" onSubmit={handleSubmit}>
+    <form className="ContactForm" onSubmit={handleSubmit} id="contact-form">
       <div className="flex flex-col items-center space-y-3">
         <ContactFormInputContainer>
           <ContactFormInputLabel htmlFor="name">

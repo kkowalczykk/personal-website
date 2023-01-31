@@ -6,7 +6,7 @@ export interface ISideIcons extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const SideIcons: React.FC<ISideIcons> = ({ children }) => {
   return (
-    <div className="SideIcons fixed bottom-0 left-10 z-10 flex flex-col items-center">
+    <div className="SideIcons fixed bottom-0 left-10 z-10 hidden flex-col items-center min-[1366px]:flex">
       <div className="icons mb-5 flex flex-col items-center space-y-4 text-slate-400">
         <a
           href="https://github.com/kkowalczykk"

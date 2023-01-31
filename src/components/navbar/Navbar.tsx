@@ -56,9 +56,9 @@ const Navbar: React.FC<INavbar> = ({ children }) => {
   return (
     <nav
       ref={navbarRef}
-      className="navbar fixed left-0 top-0 z-30 flex w-full flex-1 flex-row items-center justify-between px-5 text-center text-white transition-all duration-300 lg:px-20"
+      className="navbar fixed left-0 top-0 z-30 flex w-full flex-1 flex-row items-center justify-between px-5 text-center text-white transition-all duration-300 lg:px-10 xl:px-20"
     >
-      <div className="container mx-auto flex justify-between py-4">
+      <div className="container mx-auto flex justify-between py-4 md:max-lg:max-w-5xl lg:max-xl:max-w-6xl">
         <div className="flex flex-row items-center justify-center">
           <Link href="/">
             <div className="flex flex-row items-center justify-center">

@@ -98,7 +98,7 @@ export const Projects: React.FC<IProjects> = ({ children }) => {
   ];
 
   return (
-    <div className="mt-20 w-full flex-1 flex-col items-center justify-center space-y-20 text-center">
+    <div className="mt-10 w-full flex-1 flex-col items-center justify-center space-y-20 text-center md:mt-20">
       {projects.map((project, index) => (
         <ProjectBox key={index} {...project} reversed={index % 2 == 1} />
       ))}

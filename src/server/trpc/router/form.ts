@@ -43,7 +43,7 @@ export const formRouter = router({
       console.log('Message sent: %s', mailInfo.messageId);
 
       return {
-        info: mailInfo,
+        sent: true,
       };
     }),
 });

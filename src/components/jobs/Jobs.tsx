@@ -35,24 +35,24 @@ export const Jobs: React.FC<IJobs> = ({ className }) => {
             Warsaw, PL
           </span>
           <div className="JobBox__accordion__desc mt-4">
-            <ul className="list-none space-y-3 text-base">
+            <ul className="list-none space-y-3 text-sm sm:text-base">
               <li>
-                <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
+                <MdArrowRight className="mr-3 inline text-lg text-orange-primary sm:text-2xl" />
                 Creating user interfaces based on provided designs and
                 wireframes.
               </li>
               <li>
-                <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
+                <MdArrowRight className="mr-3 inline text-lg text-orange-primary sm:text-2xl" />
                 Working with different technologies and content management
                 systems such as Vue, Nuxt, WordPress, Joomla, Prestashop,
                 Express.js etc.
               </li>
               <li>
-                <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
+                <MdArrowRight className="mr-3 inline text-lg text-orange-primary sm:text-2xl" />
                 Creating and maintaining websites and web applications.
               </li>
               <li>
-                <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
+                <MdArrowRight className="mr-3 inline text-lg text-orange-primary sm:text-2xl" />
                 Performance optimization and accessibility improvements of
                 existing websites (SEO and Web Vitals).
               </li>

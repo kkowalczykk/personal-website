@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export const BgGridlines: React.FC = () => {
   return (
     <div className="bg-gridlines pointer-events-none fixed top-0 left-0 h-screen w-full">
-      <Container className="mx-auto flex h-full justify-between text-gray-600 opacity-20 lg:opacity-30">
+      <Container className="mx-auto flex h-full justify-between text-gray-600 opacity-20 min-[1px]:px-3 lg:opacity-30 xl:px-5">
         <motion.div
           className="h-full w-0.5 origin-top bg-current"
           initial={{ scaleY: 0 }}

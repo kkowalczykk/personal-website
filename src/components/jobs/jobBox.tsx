@@ -71,20 +71,22 @@ export const JobBox: React.FC<IJobBox> = ({
 
   return (
     <div className="JobBox flex flex-col">
-      <div className="JobBox__main flex w-full items-center rounded-md bg-dark-secondary py-4 px-6">
-        <div className="JobBox__main__content flex flex-1 items-center text-slate-200">
-          <h5 className="inline-flex flex-1 items-center text-xl">
-            <span className="font-bold">{jobName}</span>
-            <span className="mx-1 font-sans font-medium text-orange-primary">
-              @
-            </span>{' '}
-            <a
-              href={jobCompany.url}
-              target="_blank"
-              className="text-orange-primary  hover:underline"
-            >
-              {jobCompany.name}
-            </a>
+      <div className="JobBox__main flex w-full items-center rounded-md bg-dark-secondary py-4 px-4 lg:px-6">
+        <div className="JobBox__main__content flex flex-1 flex-col text-slate-200 lg:flex-row lg:items-center">
+          <h5 className="min-lg:text-xl inline flex-1 items-center">
+            <span className="font-bold">{jobName}</span>{' '}
+            <div className="inline whitespace-nowrap">
+              <span className="font-sans font-medium text-orange-primary">
+                @
+              </span>{' '}
+              <a
+                href={jobCompany.url}
+                target="_blank"
+                className="text-orange-primary  hover:underline"
+              >
+                {jobCompany.name}
+              </a>
+            </div>
           </h5>
           <span className="font-mono text-sm">
             {getStringInterval(jobStartDate, jobEndDate)}
@@ -92,25 +94,27 @@ export const JobBox: React.FC<IJobBox> = ({
         </div>
         <button
           onClick={toggleAccordion}
-          className="JobBox__main__button ml-4 block rounded-full border border-orange-primary p-3 text-xl transition-all hover:bg-orange-primary/20"
+          className="JobBox__main__button ml-4 block rounded-full border border-orange-primary p-2 text-xl transition-all hover:bg-orange-primary/20 sm:p-3"
         >
           {isExpanded ? <MdRemove /> : <MdAdd />}
         </button>
       </div>
       <div
         ref={accordion}
-        className="JobBox__accordion mt-2 flex w-full flex-col overflow-hidden rounded-md bg-dark-secondary/50 px-6 shadow-sm transition-all duration-500"
+        className="JobBox__accordion mt-2 flex w-full flex-col overflow-hidden rounded-md bg-dark-secondary/50 px-4 shadow-sm transition-all duration-500 sm:px-6"
       >
         <div
           ref={accordionContent}
           className="JobBox__accordion__content py-4 text-slate-300"
         >
-          <div className="w-full flex-col justify-center">{jobDescription}</div>
-          <div className="mt-4 flex flex-wrap space-x-3">
+          <div className="w-full flex-col justify-center max-sm:text-base">
+            {jobDescription}
+          </div>
+          <div className="mt-4 flex flex-wrap">
             {technologies.map((technology) => (
               <div
                 key={technology.name}
-                className="rounded-full bg-orange-primary/90 px-4 py-1 font-mono text-sm font-semibold text-dark-primary"
+                className="mr-3 mb-3 rounded-full bg-orange-primary/90 px-3 py-[0.18em] font-mono text-xs font-semibold text-dark-primary last:mr-0 sm:px-4 sm:py-1 sm:text-sm"
               >
                 {technology.name}
               </div>

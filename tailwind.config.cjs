@@ -15,6 +15,9 @@ module.exports = {
       fontFamily: {
         marker: ['var(--font-marker)', ...fontFamily.sans],
         mono: ['var(--font-fira-mono)', ...fontFamily.mono],
+      },
+      fontSize: {
+        'xs': '0.75rem',
       }
     },
   },

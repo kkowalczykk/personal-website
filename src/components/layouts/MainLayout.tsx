@@ -39,6 +39,15 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   const pointerMatch = usePointerMatch();
   const isPointer = useAtomValue(isPointerAtom);
 
+  useEffect(() => {
+    if (menuOpen) {
+      contentRef.current?.classList.add('overflow-y-hidden');
+      document.querySelector('body')?.classList.add('overflow-y-hidden');
+    } else {
+      contentRef.current?.classList.remove('overflow-y-hidden');
+      document.querySelector('body')?.classList.remove('overflow-y-hidden');
+    }
+  }, [menuOpen]);
   return (
     <div
       className={

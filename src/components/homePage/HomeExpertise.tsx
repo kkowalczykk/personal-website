@@ -8,7 +8,7 @@ export interface IHomeExpertise extends React.HTMLAttributes<HTMLDivElement> {}
 export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
   return (
     <Section heading="My expertise" sectionIndex={'02'}>
-      <div className="Tiles grid grid-cols-3 gap-4">
+      <div className="Tiles grid grid-cols-1 justify-items-center gap-4 lg:grid-cols-3">
         <HomeExpertiseTile
           title="Creating user interfaces"
           image="/frontend.png"
@@ -54,7 +54,7 @@ export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
           </span>{' '}
           I've worked with:
         </h3>
-        <div className="mt-10 grid grid-cols-4 text-slate-300">
+        <div className="mt-10 grid grid-cols-2 text-slate-300 sm:grid-cols-4">
           <div className="col-1">
             <ul className="list-none space-y-1 text-left text-base">
               <HomeExpertiseListItem>HTML / CSS / JS</HomeExpertiseListItem>
@@ -75,7 +75,7 @@ export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
           </div>
           <div className="col-3">
             <ul className="list-none space-y-1 text-left text-base">
-              <HomeExpertiseListItem>Strapi</HomeExpertiseListItem>
+              <HomeExpertiseListItem>TailwindCSS</HomeExpertiseListItem>
               <HomeExpertiseListItem>Wordpress</HomeExpertiseListItem>
               <HomeExpertiseListItem>Prestashop</HomeExpertiseListItem>
               <HomeExpertiseListItem>Kafka</HomeExpertiseListItem>
@@ -124,7 +124,7 @@ const HomeExpertiseTile: React.FC<IHomeExpertiseTile> = ({
   const imageWidthClass = imageSize === 'large' ? 'w-24' : 'w-16';
 
   return (
-    <div className="Tile borded rounded-lg border-gray-900 bg-dark-secondary/60 py-4 px-4">
+    <div className="Tile borded max-w-sm rounded-lg border-gray-900 bg-dark-secondary/60 py-4 px-4">
       <div className="Tile__heading flex items-center space-x-3 text-left">
         <div className={`image relative h-16 ${imageWidthClass}`}>
           <Image

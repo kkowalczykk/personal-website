@@ -22,10 +22,14 @@ export const ProjectBox: React.FC<IProjectBox> = ({
   reversed,
 }) => {
   return (
-    <div className={`ProjectBox flex ${reversed ? 'flex-row-reverse' : ''}`}>
-      <div className="ProjectBox__ImageWrapper relative z-0 mt-12 h-[310px] flex-1">
+    <div
+      className={`ProjectBox flex max-md:flex-col-reverse ${
+        reversed ? 'md:flex-row-reverse' : ''
+      }`}
+    >
+      <div className="ProjectBox__ImageWrapper relative z-0 mt-10 max-md:aspect-video max-md:w-full md:mt-12 md:h-[310px] md:flex-1">
         <div
-          className={`ImageContainer absolute top-0 h-full w-[112%] overflow-hidden rounded-md bg-orange-primary/70 shadow-md transition-all hover:bg-transparent ${
+          className={`ImageContainer absolute top-0 h-full w-full overflow-hidden rounded-md bg-orange-primary/70 shadow-md transition-all hover:bg-transparent md:w-[112%] ${
             reversed ? 'right-0' : 'left-0'
           }`}
         >
