@@ -49,19 +49,21 @@ export const ProjectBox: React.FC<IProjectBox> = ({
         <span className="font-marker text-sm leading-none text-orange-primary">
           PROJECT
         </span>
-        <h3 className="ProjectBox__Name text-3xl font-bold">{name}</h3>
-        <div className="ProjectBox__Description my-6 rounded-md bg-dark-secondary p-4 shadow-lg">
+        <h3 className="ProjectBox__Name text-3xl font-bold text-slate-100">
+          {name}
+        </h3>
+        <div className="ProjectBox__Description my-6 rounded-md bg-dark-secondary p-4 text-slate-200 shadow-lg">
           {description}
         </div>
         <div
-          className={`ProjectBox__Technologies inline-flex flex-wrap text-gray-300 ${
+          className={`ProjectBox__Technologies inline-flex flex-wrap text-slate-300 ${
             reversed ? '' : 'justify-end'
           }`}
         >
           {technologies.map((technology, index) => (
             <span
               key={index}
-              className={`ProjectBox__Technology mb-2 whitespace-nowrap text-base text-gray-300 ${
+              className={`ProjectBox__Technology mb-2 whitespace-nowrap text-base ${
                 reversed ? 'mr-5 last:mr-0' : 'ml-5 first:ml-0'
               }`}
             >

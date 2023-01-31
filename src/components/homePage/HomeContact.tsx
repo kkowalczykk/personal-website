@@ -9,10 +9,10 @@ export const HomeContact: React.FC<IHomeContact> = ({ children }) => {
       heading="Stay in touch"
       sectionIndex="04"
       id="contact"
-      className="bg-dark-secondary pb-10"
+      className="bg-dark-secondary py-20"
       centeredHeading={true}
     >
-      <div className="mt-20 space-y-3 text-center">
+      <div className="mt-20 space-y-3 text-center text-slate-300">
         <p className="text-xl">
           Have a question or a project you need help with? I'd love to hear from
           you!

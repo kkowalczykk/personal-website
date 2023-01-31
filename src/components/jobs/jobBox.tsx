@@ -72,7 +72,7 @@ export const JobBox: React.FC<IJobBox> = ({
   return (
     <div className="JobBox flex flex-col">
       <div className="JobBox__main flex w-full items-center rounded-md bg-dark-secondary py-4 px-6">
-        <div className="JobBox__main__content flex flex-1 items-center">
+        <div className="JobBox__main__content flex flex-1 items-center text-slate-200">
           <h5 className="inline-flex flex-1 items-center text-xl">
             <span className="font-bold">{jobName}</span>
             <span className="mx-1 font-sans font-medium text-orange-primary">
@@ -101,7 +101,10 @@ export const JobBox: React.FC<IJobBox> = ({
         ref={accordion}
         className="JobBox__accordion mt-2 flex w-full flex-col overflow-hidden rounded-md bg-dark-secondary/50 px-6 shadow-sm transition-all duration-500"
       >
-        <div ref={accordionContent} className="JobBox__accordion__content py-4">
+        <div
+          ref={accordionContent}
+          className="JobBox__accordion__content py-4 text-slate-300"
+        >
           <div className="w-full flex-col justify-center">{jobDescription}</div>
           <div className="mt-4 flex flex-wrap space-x-3">
             {technologies.map((technology) => (

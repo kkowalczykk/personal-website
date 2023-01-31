@@ -7,6 +7,7 @@ import SideMenu from '../sideMenu/SideMenu';
 import Cursor from '../cursor/Cursor';
 import usePointerMatch from '../../utils/usePointerMatch';
 import { BgGridlines } from '../backgrounds/Gridlines';
+import { SideIcons } from '../sideIcons/SideIcons';
 
 export const menuOpenAtom = atom(false);
 export const isPointerAtom = atom(false);
@@ -48,6 +49,7 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
     >
       <Navbar></Navbar>
       <BgGridlines />
+      <SideIcons></SideIcons>
       {/* START Perspective Wrapper */}
       <div
         className={

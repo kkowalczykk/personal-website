@@ -13,5 +13,19 @@ const config = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Set-Cookie",
+            value: "HttpOnly;Secure;SameSite=Strict",
+          }
+        ]
+      }
+    ]
+  }
 };
 export default config;

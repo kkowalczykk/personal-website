@@ -3,6 +3,8 @@ import { z } from 'zod';
 import { trpc } from '../../utils/trpc';
 import { BiLoader } from 'react-icons/bi';
 import { createPortal } from 'react-dom';
+import toast, { Toaster } from 'react-hot-toast';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export interface IContactForm extends React.HTMLAttributes<HTMLFormElement> {}
 
@@ -17,20 +19,12 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');
+  const [captcha, setCaptcha] = useState<string>('');
   const [nameError, setNameError] = useState<string | null>(null);
   const [emailError, setEmailError] = useState<string | null>(null);
   const [messageError, setMessageError] = useState<string | null>(null);
+  const [captchaError, setCaptchaError] = useState<string | null>(null);
   const [isSending, setIsSending] = useState<boolean>(false);
-  const [formMessages, setFormMessages] = useState<ContactFormMessages[]>([
-    {
-      type: 'success',
-      message: 'Message sent successfully!',
-    },
-    {
-      type: 'error',
-      message: 'Something went wrong. Please try again later.',
-    },
-  ]);
   const layoutBodyRef = useRef<Element | null>(null);
 
   useEffect(() => {
@@ -41,29 +35,30 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
     onSuccess: () => {
       resetErrors();
       resetFormInputs();
-      setFormMessages((prev) => [
-        ...prev,
-        {
-          type: 'success',
-          message: 'Message sent successfully!',
+      toast.success('Message sent successfully!', {
+        position: 'bottom-right',
+        duration: 5000,
+        style: {
+          width: '300px',
         },
-      ]);
-      setTimeout(() => {
-        setFormMessages((prev) => prev.slice(1));
-      }, 5000);
+      });
     },
     onError: (error) => {
-      console.log(error);
-      setFormMessages((prev) => [
-        ...prev,
-        {
-          type: 'error',
-          message: 'Something went wrong. Please try again later.',
+      console.log(error.message);
+      let message = 'Something went wrong. Please try again later.';
+      if (error.message === 'Invalid reCAPTCHA token') {
+        message = 'Invalid reCAPTCHA token. Please try again.';
+        setCaptcha('');
+        // @ts-ignore
+        window?.grecaptcha?.reset();
+      }
+      toast.error(message, {
+        position: 'bottom-right',
+        duration: 5000,
+        style: {
+          width: '300px',
         },
-      ]);
-      setTimeout(() => {
-        setFormMessages((prev) => prev.slice(1));
-      }, 5000);
+      });
     },
   });
 
@@ -71,6 +66,7 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
     setNameError(null);
     setEmailError(null);
     setMessageError(null);
+    setCaptchaError(null);
   };
 
   const resetFormInputs = () => {
@@ -85,7 +81,7 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
       name,
       email,
       message,
-      captcha: '123',
+      captcha,
     });
 
     if (!formData.success) {
@@ -101,6 +97,8 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
             case 'message':
               setMessageError(issue.message.replace('String', 'Message'));
               break;
+            case 'captcha':
+              setCaptchaError('Please verify that you are not a robot.');
             default:
               break;
           }
@@ -113,21 +111,28 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(name, email, message);
-
     if (!validateForm()) return;
 
     setIsSending(true);
-    const result = await sendMutation.mutateAsync({
-      name,
-      email,
-      message,
-      captcha: '123',
-    });
-    setIsSending(false);
+    sendMutation
+      .mutateAsync({
+        name,
+        email,
+        message,
+        captcha,
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
-  const handleErrors = (e: any) => {};
+  const handleCaptchaChange = (value: string | null) => {
+    if (value) {
+      setCaptcha(value);
+    } else {
+      setCaptcha('');
+    }
+  };
 
   return (
     <form className="ContactForm" onSubmit={handleSubmit}>
@@ -144,7 +149,7 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
             type="text"
             name="name"
             id="name"
-            className="ContactForm__Input rounded-md border border-white bg-dark-primary p-2 outline-none ring-opacity-0 transition-all duration-200 focus:border-orange-primary focus:ring-4 focus:ring-orange-primary focus:ring-opacity-50"
+            className="ContactForm__Input rounded-md border border-slate-200 bg-dark-primary p-2 outline-none ring-opacity-0 transition-all duration-200 focus:border-orange-primary focus:ring-4 focus:ring-orange-primary focus:ring-opacity-50"
           />
           <ContactFormInputErrorMessage errorMsg={nameError} />
         </ContactFormInputContainer>
@@ -160,7 +165,7 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
             type="text"
             name="email"
             id="email"
-            className="ContactForm__Input rounded-md border border-white bg-dark-primary p-2 outline-none ring-opacity-0 transition-all duration-200 focus:border-orange-primary focus:ring-4 focus:ring-orange-primary focus:ring-opacity-50"
+            className="ContactForm__Input rounded-md border border-slate-200 bg-dark-primary p-2 outline-none ring-opacity-0 transition-all duration-200 focus:border-orange-primary focus:ring-4 focus:ring-orange-primary focus:ring-opacity-50"
           />
           <ContactFormInputErrorMessage errorMsg={emailError} />
         </ContactFormInputContainer>
@@ -176,14 +181,24 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
             name="message"
             id="message"
             rows={3}
-            className="ContactForm__Input rounded-md border border-white bg-dark-primary p-2 outline-none ring-opacity-0 transition-all duration-200 focus:border-orange-primary focus:ring-4 focus:ring-orange-primary focus:ring-opacity-50"
+            className="ContactForm__Input rounded-md border border-slate-200 bg-dark-primary p-2 outline-none ring-opacity-0 transition-all duration-200 focus:border-orange-primary focus:ring-4 focus:ring-orange-primary focus:ring-opacity-50"
           />
           <ContactFormInputErrorMessage errorMsg={messageError} />
+        </ContactFormInputContainer>
+        <ContactFormInputContainer>
+          <div className="flex justify-center pt-4">
+            <ReCAPTCHA
+              sitekey="6Lcx1z4kAAAAAAw2UkTqf6F2mWgeT1IMGTabE4IA"
+              onChange={handleCaptchaChange}
+              theme="dark"
+            />
+            <ContactFormInputErrorMessage errorMsg={captchaError} />
+          </div>
         </ContactFormInputContainer>
         <div>
           <button
             type="submit"
-            className="mt-10 flex w-44 items-center justify-center rounded-md border-2 border-orange-primary py-2 px-5 text-center font-marker text-xl transition-all hover:bg-orange-primary/20"
+            className="mt-10 flex w-44 items-center justify-center rounded-md border-2 border-orange-primary py-2 px-5 text-center font-marker text-xl text-slate-200 transition-all hover:bg-orange-primary/20"
           >
             {isSending ? (
               <>
@@ -200,37 +215,8 @@ export const ContactForm: React.FC<IContactForm> = ({}) => {
         </div>
       </div>
       {layoutBodyRef.current &&
-        createPortal(
-          <ContactFormMessages messages={formMessages} />,
-          layoutBodyRef.current
-        )}
+        createPortal(<Toaster />, layoutBodyRef.current)}
     </form>
-  );
-};
-
-type ContactFormMessages = {
-  message: string;
-  type: 'success' | 'error';
-};
-
-interface IContactFormMessages {
-  messages: ContactFormMessages[];
-}
-
-const ContactFormMessages: React.FC<IContactFormMessages> = ({ messages }) => {
-  return (
-    <div className="ContactForm__Messages fixed bottom-4 right-4 z-20 space-y-4">
-      {messages.map((message, index) => (
-        <div
-          key={index}
-          className={`ContactForm__Message flex w-72 items-center rounded-md border-2 border-orange-primary bg-dark-primary py-2 px-5 text-left text-lg text-white transition-all ${
-            message.type === 'success' ? '' : ''
-          }`}
-        >
-          {message.message}
-        </div>
-      ))}
-    </div>
   );
 };
 
@@ -256,7 +242,7 @@ const ContactFormInputLabel: React.FC<IContactFormInputLabel> = ({
   return (
     <label
       htmlFor={htmlFor}
-      className="ContactForm__Label mb-2 font-marker text-xl"
+      className="ContactForm__Label mb-2 font-marker text-xl text-slate-200"
     >
       {children}
     </label>

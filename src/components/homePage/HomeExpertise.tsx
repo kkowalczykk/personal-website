@@ -43,7 +43,7 @@ export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
         </HomeExpertiseTile>
       </div>
       <div className="Technologies">
-        <h3 className="mt-16 text-2xl font-semibold">
+        <h3 className="mt-16 text-2xl font-semibold text-slate-200">
           Some of the{' '}
           <span className="relative after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-2 after:w-full after:bg-orange-primary/70">
             tools
@@ -54,7 +54,7 @@ export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
           </span>{' '}
           I've worked with:
         </h3>
-        <div className="mt-10 grid grid-cols-4">
+        <div className="mt-10 grid grid-cols-4 text-slate-300">
           <div className="col-1">
             <ul className="list-none space-y-1 text-left text-base">
               <HomeExpertiseListItem>HTML / CSS / JS</HomeExpertiseListItem>
@@ -134,11 +134,11 @@ const HomeExpertiseTile: React.FC<IHomeExpertiseTile> = ({
             className="object-contain"
           />
         </div>
-        <h4 className="text-xl font-semibold">{title}</h4>
+        <h4 className="text-xl font-semibold text-slate-200">{title}</h4>
       </div>
       <div className="Tile__content mt-4 flex w-full flex-col items-start">
         <span className="font-mono text-orange-primary">{'<>'}</span>
-        <div className="my-3 ml-2 border-l-2 border-orange-primary/40 px-3 pl-6 text-justify text-base">
+        <div className="my-3 ml-2 border-l-2 border-orange-primary/40 px-3 pl-6 text-justify text-base text-slate-300">
           {children}
         </div>
         <span className="font-mono text-orange-primary">{'</>'}</span>

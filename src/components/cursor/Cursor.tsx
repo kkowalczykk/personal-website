@@ -16,7 +16,7 @@ const Cursor: React.FC<{}> = () => {
         ev.target instanceof SVGElement
       ) {
         const cursor = window.getComputedStyle(ev.target)['cursor'];
-        if (cursor === 'pointer') {
+        if (cursor === 'pointer' || ev.target.tagName === 'IFRAME') {
           setCursorVariant('hover');
         } else {
           setCursorVariant('default');
