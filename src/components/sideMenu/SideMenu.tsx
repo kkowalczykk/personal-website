@@ -1,8 +1,10 @@
 import { useRef } from 'react';
 import useClickOutside from '../../utils/useClickOutside';
 import Container from '../container/Container';
-import { MdClose } from 'react-icons/md';
+import { MdClose, MdMailOutline } from 'react-icons/md';
 import Link from 'next/link';
+import { TbBrandGithub } from 'react-icons/tb';
+import { FiLinkedin } from 'react-icons/fi';
 
 export interface ISideMenu extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -56,7 +58,44 @@ const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
             index="03"
             onClick={handleMenuItemClick}
           ></SideMenuItem>
+          <div>
+            <button
+              onClick={() => {
+                handleMenuItemClick();
+                scrollTo({
+                  // @ts-ignore
+                  top: document.querySelector('#contact')?.offsetTop,
+                  behavior: 'smooth',
+                });
+              }}
+              className="mt-4 select-none rounded-md border-2 border-orange-primary py-1.5 px-4 text-lg font-bold text-orange-primary transition-all hover:bg-orange-primary/10"
+            >
+              Send a message{' '}
+            </button>
+          </div>
         </ul>
+        <div className="Icons flex justify-center space-x-6 py-4">
+          <a
+            href="https://github.com/kkowalczykk"
+            target={'_blank'}
+            className=" transition-all duration-200 hover:-translate-y-0.5 hover:text-orange-primary"
+          >
+            <TbBrandGithub className="block h-6 w-6" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kkowalczykk/"
+            target={'_blank'}
+            className=" transition-all duration-200 hover:-translate-y-0.5 hover:text-orange-primary"
+          >
+            <FiLinkedin className="block h-5 w-5" />
+          </a>
+          <a
+            href="mailto:me@kkowalczyk.dev"
+            className=" transition-all duration-200 hover:-translate-y-0.5 hover:text-orange-primary"
+          >
+            <MdMailOutline className="block h-6 w-6" />
+          </a>
+        </div>
       </Container>
     </div>
   );

@@ -56,7 +56,11 @@ export const ProjectBox: React.FC<IProjectBox> = ({
         <h3 className="ProjectBox__Name text-3xl font-bold text-slate-100">
           {name}
         </h3>
-        <div className="ProjectBox__Description my-6 rounded-md bg-dark-secondary p-4 text-slate-200 shadow-lg">
+        <div
+          className={`ProjectBox__Description my-6 rounded-md bg-dark-secondary p-4 text-justify text-slate-200 shadow-lg ${
+            reversed ? 'md:text-left' : 'md:text-right'
+          }`}
+        >
           {description}
         </div>
         <div
