@@ -8,9 +8,11 @@ import Cursor from '../cursor/Cursor';
 import usePointerMatch from '../../utils/usePointerMatch';
 import { BgGridlines } from '../backgrounds/Gridlines';
 import { SideIcons } from '../sideIcons/SideIcons';
+import { MainLayoutLoader } from './MainLayoutLoader';
 
 export const menuOpenAtom = atom(false);
 export const isPointerAtom = atom(false);
+export const isLoadedAtom = atom(false);
 
 const font = Kanit({
   weight: ['300', '400', '600', '700'],
@@ -38,6 +40,7 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const pointerMatch = usePointerMatch();
   const isPointer = useAtomValue(isPointerAtom);
+  const isLoaded = useAtomValue(isLoadedAtom);
 
   useEffect(() => {
     if (menuOpen) {
@@ -48,34 +51,48 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
       document.querySelector('body')?.classList.remove('overflow-y-hidden');
     }
   }, [menuOpen]);
+
+  useEffect(() => {
+    if (isLoaded) {
+      document.querySelector('body')?.classList.remove('overflow-y-hidden');
+      document.querySelector('body')?.classList.add('overflow-y-auto');
+    } else {
+      document.querySelector('body')?.classList.remove('overflow-y-auto');
+      document.querySelector('body')?.classList.add('overflow-y-hidden');
+    }
+  }, [isLoaded]);
+
   return (
-    <div
-      className={
-        'overflow-x-hidden bg-dark-primary ' +
-        `${font.className} ${Permanent_Marker_font.variable} ${Fira_Mono_font.variable}`
-      }
-      ref={contentRef}
-    >
-      <Navbar></Navbar>
-      <BgGridlines />
-      <SideIcons></SideIcons>
-      {/* START Perspective Wrapper */}
+    <>
+      {!isLoaded && <MainLayoutLoader></MainLayoutLoader>}
       <div
         className={
-          `${styles.perspective}` +
-          (menuOpen ? ` ${styles['perspective--active']}` : '')
+          'overflow-x-hidden bg-dark-primary ' +
+          `${font.className} ${Permanent_Marker_font.variable} ${Fira_Mono_font.variable}`
         }
+        ref={contentRef}
       >
-        <div className="MainLayout__body flex min-h-screen flex-col items-center justify-center text-white">
-          {children}
+        <Navbar></Navbar>
+        <BgGridlines />
+        <SideIcons></SideIcons>
+        {/* START Perspective Wrapper */}
+        <div
+          className={
+            `${styles.perspective}` +
+            (menuOpen ? ` ${styles['perspective--active']}` : '')
+          }
+        >
+          <div className="MainLayout__body flex min-h-screen flex-col items-center justify-center text-white">
+            {children}
+          </div>
         </div>
+        {/* END Perspective Wrapper */}
+
+        <SideMenu open={menuOpen} setOpen={setMenuOpen}></SideMenu>
+
+        {isPointer && <Cursor></Cursor>}
       </div>
-      {/* END Perspective Wrapper */}
-
-      <SideMenu open={menuOpen} setOpen={setMenuOpen}></SideMenu>
-
-      {isPointer && <Cursor></Cursor>}
-    </div>
+    </>
   );
 };
 

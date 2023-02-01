@@ -18,6 +18,9 @@ module.exports = {
       },
       fontSize: {
         'xs': '0.75rem',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       }
     },
   },
