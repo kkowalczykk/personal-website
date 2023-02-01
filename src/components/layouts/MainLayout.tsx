@@ -13,6 +13,7 @@ import { MainLayoutLoader } from './MainLayoutLoader';
 export const menuOpenAtom = atom(false);
 export const isPointerAtom = atom(false);
 export const isLoadedAtom = atom(false);
+export const mountPageAtom = atom(false);
 
 const font = Kanit({
   weight: ['300', '400', '600', '700'],
@@ -41,6 +42,7 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   const pointerMatch = usePointerMatch();
   const isPointer = useAtomValue(isPointerAtom);
   const isLoaded = useAtomValue(isLoadedAtom);
+  const mount = useAtomValue(mountPageAtom);
 
   useEffect(() => {
     if (menuOpen) {
@@ -65,33 +67,35 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   return (
     <>
       {!isLoaded && <MainLayoutLoader></MainLayoutLoader>}
-      <div
-        className={
-          'overflow-x-hidden bg-dark-primary ' +
-          `${font.className} ${Permanent_Marker_font.variable} ${Fira_Mono_font.variable}`
-        }
-        ref={contentRef}
-      >
-        <Navbar></Navbar>
-        <BgGridlines />
-        <SideIcons></SideIcons>
-        {/* START Perspective Wrapper */}
+      {mount && (
         <div
           className={
-            `${styles.perspective}` +
-            (menuOpen ? ` ${styles['perspective--active']}` : '')
+            'overflow-x-hidden bg-dark-primary ' +
+            `${font.className} ${Permanent_Marker_font.variable} ${Fira_Mono_font.variable}`
           }
+          ref={contentRef}
         >
-          <div className="MainLayout__body flex min-h-screen flex-col items-center justify-center text-white">
-            {children}
+          <Navbar></Navbar>
+          <BgGridlines />
+          <SideIcons></SideIcons>
+          {/* START Perspective Wrapper */}
+          <div
+            className={
+              `${styles.perspective}` +
+              (menuOpen ? ` ${styles['perspective--active']}` : '')
+            }
+          >
+            <div className="MainLayout__body flex min-h-screen flex-col items-center justify-center text-white">
+              {children}
+            </div>
           </div>
+          {/* END Perspective Wrapper */}
+
+          <SideMenu open={menuOpen} setOpen={setMenuOpen}></SideMenu>
+
+          {isPointer && <Cursor></Cursor>}
         </div>
-        {/* END Perspective Wrapper */}
-
-        <SideMenu open={menuOpen} setOpen={setMenuOpen}></SideMenu>
-
-        {isPointer && <Cursor></Cursor>}
-      </div>
+      )}
     </>
   );
 };

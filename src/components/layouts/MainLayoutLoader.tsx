@@ -1,7 +1,7 @@
 import { motion, useAnimationControls } from 'framer-motion';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
-import { isLoadedAtom } from './MainLayout';
+import { isLoadedAtom, mountPageAtom } from './MainLayout';
 
 export interface IMainLayoutLoader
   extends React.HTMLAttributes<HTMLDivElement> {}
@@ -12,6 +12,7 @@ export const MainLayoutLoader: React.FC<IMainLayoutLoader> = ({ children }) => {
   const barContainerControls = useAnimationControls();
   const componentControls = useAnimationControls();
   const [isLoaded, setIsLoaded] = useAtom(isLoadedAtom);
+  const [mountPage, setMountPage] = useAtom(mountPageAtom);
   const svgVariants = {
     visible: {
       scale: 1,
@@ -87,6 +88,8 @@ export const MainLayoutLoader: React.FC<IMainLayoutLoader> = ({ children }) => {
     );
     // Wait 0.8 seconds before starting the exit animation
     await new Promise((resolve) => setTimeout(resolve, 500));
+
+    setMountPage(true);
 
     await componentControls.start(
       { opacity: 0 },
