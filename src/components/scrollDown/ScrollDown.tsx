@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 
 const ScrollDown: React.FC<{}> = () => {
   const [sequenceInitiator, setSequenceInitiator] = useState(false);
+  const [isFirstTimeAnimating, setIsFirstTimeAnimating] = useState(true);
+
   const shapeVariants = {
     visible: {
       pathLength: 1,
@@ -59,6 +61,12 @@ const ScrollDown: React.FC<{}> = () => {
   }, [sequenceInitiator]);
 
   const sequence = async () => {
+    if (isFirstTimeAnimating) {
+      setIsFirstTimeAnimating(false);
+      // Wait 1500ms before firing the sequence
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+    }
+
     svgControls.start({ opacity: 1, transition: { duration: 0.5 } });
     shapeControls.start('visible');
 

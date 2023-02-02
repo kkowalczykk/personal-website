@@ -8,25 +8,15 @@ import { MdMessage } from 'react-icons/md';
 export interface IHomeHeader extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const HomeHeader: React.FC<IHomeHeader> = ({ children }) => {
-  const variants: Variants = {
-    offscreen: {
-      opacity: 0,
-      y: -30,
-    },
-    onscreen: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: 'spring',
-        bounce: 0.4,
-        duration: 1.5,
-      },
-    },
-  };
   return (
     <header className="z-10 flex min-h-screen w-full flex-col items-center justify-center pt-20">
       <Container className="flex flex-1 flex-col items-center justify-center">
-        <div className="mb-2 inline-flex items-center text-lg font-bold">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.4 }}
+          className="mb-2 inline-flex items-center text-lg font-bold"
+        >
           <span>Hi there </span>
           <div className="relative ml-2 inline-flex h-7 w-7">
             <Image
@@ -35,16 +25,26 @@ export const HomeHeader: React.FC<IHomeHeader> = ({ children }) => {
               alt="Waving Hand Emoji"
             ></Image>
           </div>
-        </div>
+        </motion.div>
 
-        <h1 className="mb-2 text-5xl font-bold">
+        <motion.h1
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.4 }}
+          className="mb-2 text-5xl font-bold"
+        >
           I'm Karol
           <span className="animate-blink ml-0.5 text-orange-primary">.</span>
-        </h1>
+        </motion.h1>
 
-        <h2 className="font-marker text-2xl font-bold text-orange-primary">
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.4 }}
+          className="font-marker text-2xl font-bold text-orange-primary"
+        >
           I build stuff for the web.
-        </h2>
+        </motion.h2>
       </Container>
       <Container className="flex flex-col items-center justify-center pt-2 pb-6">
         <button

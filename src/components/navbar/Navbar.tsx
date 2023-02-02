@@ -1,8 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import Burger from '../burger/Burger';
 import NavbarMenu from '../navbarMenu/NavbarMenu';
-
+import { motion } from 'framer-motion';
 export interface INavbar {
   children?: React.ReactNode;
 }
@@ -61,9 +62,21 @@ const Navbar: React.FC<INavbar> = ({ children }) => {
       <div className="container mx-auto flex justify-between py-4 md:max-lg:max-w-5xl lg:max-xl:max-w-6xl">
         <div className="flex flex-row items-center justify-center">
           <Link href="/">
-            <div className="flex flex-row items-center justify-center">
-              <img src="/kkowalczyk_logo.svg" className="h-10" />
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-row items-center justify-center"
+            >
+              <Image
+                src={'/kkowalczyk_logo.svg'}
+                className="h-10 object-contain"
+                width={40}
+                height={40}
+                alt="kkowalczyk.dev - Logo"
+              />
+              {/* <img src="/kkowalczyk_logo.svg" className="h-10" /> */}
+            </motion.div>
           </Link>
         </div>
         <div className="flex flex-row items-center justify-center">

@@ -18,6 +18,10 @@ export const HomeContact: React.FC<IHomeContact> = ({ children }) => {
           you!
         </p>
         <p className="text-lg sm:text-xl">
+          I am open for new opportunities and I am always looking for new
+          projects to work on.
+        </p>
+        <p className="text-lg sm:text-xl">
           Feel free to send me an email at{' '}
           <a
             href="mailto:me@kkowalczyk.dev"

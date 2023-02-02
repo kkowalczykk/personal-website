@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styles from './Projects.module.css';
 import { FiExternalLink } from 'react-icons/fi';
-
+import { motion, Variants } from 'framer-motion';
 export interface IProjectBox extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
   description: string | React.ReactNode;
@@ -21,8 +21,28 @@ export const ProjectBox: React.FC<IProjectBox> = ({
   technologies,
   reversed,
 }) => {
+  const variants: Variants = {
+    offscreen: {
+      opacity: 0,
+      y: 50,
+    },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 1,
+        damping: 20,
+      },
+    },
+  };
   return (
-    <div
+    <motion.div
+      variants={variants}
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, margin: '-85px 0px' }}
       className={`ProjectBox flex max-md:flex-col-reverse ${
         reversed ? 'md:flex-row-reverse' : ''
       }`}
@@ -92,6 +112,6 @@ export const ProjectBox: React.FC<IProjectBox> = ({
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };

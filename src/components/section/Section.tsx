@@ -33,6 +33,7 @@ export const Section: React.FC<ISection> = ({
         bounce: 0.4,
         duration: 1,
         damping: 20,
+        stiffness: 100,
       },
     },
   };

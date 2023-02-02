@@ -1,12 +1,18 @@
 import { TbBrandGithub } from 'react-icons/tb';
 import { FiLinkedin } from 'react-icons/fi';
 import { MdMailOutline } from 'react-icons/md';
+import { motion } from 'framer-motion';
 
 export interface ISideIcons extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const SideIcons: React.FC<ISideIcons> = ({ children }) => {
   return (
-    <div className="SideIcons fixed bottom-0 left-10 z-10 hidden flex-col items-center min-[1366px]:flex">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1.5, duration: 0.5 }}
+      className="SideIcons fixed bottom-0 left-10 z-10 hidden flex-col items-center min-[1366px]:flex"
+    >
       <div className="icons mb-5 flex flex-col items-center space-y-4 text-slate-400">
         <a
           href="https://github.com/kkowalczykk"
@@ -30,6 +36,6 @@ export const SideIcons: React.FC<ISideIcons> = ({ children }) => {
         </a>
       </div>
       <div className="h-20 w-[1px] bg-slate-400"></div>
-    </div>
+    </motion.div>
   );
 };

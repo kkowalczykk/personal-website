@@ -1,8 +1,37 @@
 import { MdMessage } from 'react-icons/md';
-
+import { motion, Variants } from 'framer-motion';
 const NavbarMenu: React.FC<{}> = () => {
+  const itemVariants: Variants = {
+    show: {
+      opacity: 1,
+      y: 0,
+    },
+    hidden: {
+      opacity: 0,
+      y: -10,
+    },
+  };
+
+  const containerVariants = {
+    show: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+    hidden: {
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
-    <ul className="flex flex-row items-center justify-center space-x-10">
+    <motion.ul
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+      className="flex flex-row items-center justify-center space-x-10"
+    >
       <NavbarMenuItem text="About" path="#about-me" index="01"></NavbarMenuItem>
       <NavbarMenuItem
         text="Expertise"
@@ -19,7 +48,9 @@ const NavbarMenu: React.FC<{}> = () => {
         path="#contact"
         index="04"
       ></NavbarMenuItem>
-      <button
+      <motion.button
+        variants={itemVariants}
+        transition={{ duration: 0.5 }}
         onClick={() =>
           scrollTo({
             // @ts-ignore
@@ -27,11 +58,11 @@ const NavbarMenu: React.FC<{}> = () => {
             behavior: 'smooth',
           })
         }
-        className="select-none  rounded-md border-2 border-orange-primary py-1.5 px-4 text-sm font-bold text-orange-primary transition-all hover:bg-orange-primary/10"
+        className="select-none  rounded-md border-2 border-orange-primary py-1.5 px-4 text-sm font-bold text-orange-primary transition-colors hover:bg-orange-primary/10"
       >
         Send a message{' '}
-      </button>
-    </ul>
+      </motion.button>
+    </motion.ul>
   );
 };
 
@@ -51,8 +82,23 @@ const NavbarMenuItem: React.FC<INavbarMenuItem> = ({
   index,
   onClick,
 }) => {
+  const itemVariants = {
+    show: {
+      opacity: 1,
+      y: 0,
+    },
+    hidden: {
+      opacity: 0,
+      y: -10,
+    },
+  };
   return (
-    <li className="SideMenuItem" onClick={onClick}>
+    <motion.li
+      variants={itemVariants}
+      className="SideMenuItem"
+      transition={{ duration: 0.5 }}
+      onClick={onClick}
+    >
       <a
         className="sticky-hover relative flex flex-col after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:rounded-full after:bg-orange-primary after:transition-transform after:duration-200 hover:after:origin-bottom-left hover:after:scale-x-100"
         href={path}
@@ -63,7 +109,7 @@ const NavbarMenuItem: React.FC<INavbarMenuItem> = ({
           <span>{text}</span>
         </div>
       </a>
-    </li>
+    </motion.li>
   );
 };
 

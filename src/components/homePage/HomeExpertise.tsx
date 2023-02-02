@@ -1,14 +1,39 @@
 import { Section } from '../section/Section';
 import { CgWebsite } from 'react-icons/cg';
 import Image from 'next/image';
+import { motion, Variants } from 'framer-motion';
 import { MdArrowRight } from 'react-icons/md';
 
 export interface IHomeExpertise extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
+  const variants: Variants = {
+    offscreen: {
+      opacity: 0,
+      y: 50,
+    },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 1,
+        damping: 20,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
   return (
     <Section heading="My expertise" sectionIndex={'02'}>
-      <div className="Tiles grid grid-cols-1 justify-items-center gap-4 lg:grid-cols-3">
+      <motion.div
+        variants={variants}
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, margin: '-85px 0px' }}
+        className="Tiles grid grid-cols-1 justify-items-center gap-4 lg:grid-cols-3"
+      >
         <HomeExpertiseTile
           title="Creating user interfaces"
           image="/frontend.png"
@@ -41,7 +66,7 @@ export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
             Strapi as a CMS).
           </p>
         </HomeExpertiseTile>
-      </div>
+      </motion.div>
       <div className="Technologies">
         <h3 className="mt-16 text-2xl font-semibold text-slate-200">
           Some of the{' '}
@@ -84,6 +109,7 @@ export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
           </div>
           <div className="col-4">
             <ul className="list-none space-y-1 text-left text-base">
+              <HomeExpertiseListItem>Vite / Webpack</HomeExpertiseListItem>
               <HomeExpertiseListItem>Docker</HomeExpertiseListItem>
               <HomeExpertiseListItem>Photoshop</HomeExpertiseListItem>
               <HomeExpertiseListItem>Figma / XD</HomeExpertiseListItem>
@@ -123,8 +149,17 @@ const HomeExpertiseTile: React.FC<IHomeExpertiseTile> = ({
 }) => {
   const imageWidthClass = imageSize === 'large' ? 'w-24' : 'w-16';
 
+  const variants = {
+    offscreen: { opacity: 0, y: 20 },
+    onscreen: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="Tile borded max-w-sm rounded-lg border-gray-900 bg-dark-secondary/60 py-4 px-4">
+    <motion.div
+      variants={variants}
+      transition={{ duration: 0.5, type: 'spring' }}
+      className="Tile borded max-w-sm rounded-lg border-gray-900 bg-dark-secondary/60 py-4 px-4"
+    >
       <div className="Tile__heading flex items-center space-x-3 text-left">
         <div className={`image relative h-16 ${imageWidthClass}`}>
           <Image
@@ -143,6 +178,6 @@ const HomeExpertiseTile: React.FC<IHomeExpertiseTile> = ({
         </div>
         <span className="font-mono text-orange-primary">{'</>'}</span>
       </div>
-    </div>
+    </motion.div>
   );
 };

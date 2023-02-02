@@ -4,6 +4,7 @@ import { Jobs } from '../jobs/Jobs';
 import { Section } from '../section/Section';
 import { SectionHeading } from '../section/SectionHeading';
 import homeStyles from './Home.module.css';
+import { motion, Variants } from 'framer-motion';
 
 export interface IHomeAboutMe extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -13,7 +14,22 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
     const ageDate = new Date(ageDifMs);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   };
-
+  const variants: Variants = {
+    offscreen: {
+      opacity: 0,
+      y: 50,
+    },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 1,
+        damping: 20,
+      },
+    },
+  };
   return (
     <Section heading="About me" sectionIndex={'01'}>
       <div>
@@ -70,7 +86,13 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
           </div>
         </div>
       </div>
-      <div className="ProfessionalExperience mt-20 text-left lg:px-10">
+      <motion.div
+        variants={variants}
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, margin: '-125px 0px' }}
+        className="ProfessionalExperience mt-20 text-left lg:px-10"
+      >
         <h4 className="text-2xl font-bold text-slate-200 underline decoration-orange-primary">
           Professional experience
         </h4>
@@ -134,7 +156,7 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
             </div>
           </div>
         </div> */}
-      </div>
+      </motion.div>
     </Section>
   );
 };
