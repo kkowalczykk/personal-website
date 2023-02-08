@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { z } from 'zod';
 import { trpc } from '../../utils/trpc';
 import { BiLoader } from 'react-icons/bi';
-import { createPortal } from 'react-dom';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 export const contactFormValidation = z.object({
@@ -25,11 +24,6 @@ export const ContactForm: React.FC<
   const [messageError, setMessageError] = useState<string | null>(null);
   const [captchaError, setCaptchaError] = useState<string | null>(null);
   const [isSending, setIsSending] = useState<boolean>(false);
-  const layoutBodyRef = useRef<Element | null>(null);
-
-  useEffect(() => {
-    layoutBodyRef.current = document.querySelector('#__next > div');
-  }, []);
 
   const sendMutation = trpc.form.send.useMutation({
     onSuccess: () => {
@@ -188,7 +182,7 @@ export const ContactForm: React.FC<
         <ContactFormInputContainer>
           <div className="flex justify-center pt-4">
             <ReCAPTCHA
-              sitekey="6Lcx1z4kAAAAAAw2UkTqf6F2mWgeT1IMGTabE4IA"
+              sitekey={`${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
               onChange={handleCaptchaChange}
               theme="dark"
             />
@@ -214,8 +208,6 @@ export const ContactForm: React.FC<
           </button>
         </div>
       </div>
-      {layoutBodyRef.current &&
-        createPortal(<Toaster />, layoutBodyRef.current)}
     </form>
   );
 };
@@ -255,7 +247,6 @@ interface IContactFormInputErrorMessage
 }
 
 const ContactFormInputErrorMessage: React.FC<IContactFormInputErrorMessage> = ({
-  children,
   errorMsg,
 }) => {
   return (

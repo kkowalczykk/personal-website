@@ -9,6 +9,7 @@ import usePointerMatch from '../../utils/usePointerMatch';
 import { BgGridlines } from '../backgrounds/Gridlines';
 import { SideIcons } from '../sideIcons/SideIcons';
 import { MainLayoutLoader } from './MainLayoutLoader';
+import { Toaster } from 'react-hot-toast';
 
 export const menuOpenAtom = atom(false);
 export const isPointerAtom = atom(false);
@@ -92,7 +93,7 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
           {/* END Perspective Wrapper */}
 
           <SideMenu open={menuOpen} setOpen={setMenuOpen}></SideMenu>
-
+          <Toaster />
           {isPointer && <Cursor></Cursor>}
         </div>
       )}
