@@ -70,7 +70,9 @@ const Navbar: React.FC<INavbar> = ({ children }) => {
             >
               <Image
                 src={'/kkowalczyk_logo.svg'}
+                sizes="(max-width: 640px) 40px, 40px"
                 className="h-10 object-contain"
+                priority={true}
                 width={40}
                 height={40}
                 alt="kkowalczyk.dev - Logo"

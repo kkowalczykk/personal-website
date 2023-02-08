@@ -21,6 +21,7 @@ export const HomeHeader: React.FC<IHomeHeader> = ({ children }) => {
           <div className="relative ml-2 inline-flex h-7 w-7">
             <Image
               src={'/waving-hand.png'}
+              sizes="28px"
               fill={true}
               alt="Waving Hand Emoji"
             ></Image>

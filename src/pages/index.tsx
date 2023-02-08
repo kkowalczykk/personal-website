@@ -21,6 +21,21 @@ const Home: NextPageWithLayout = () => {
         <title>Homepage - kkowalczyk.dev</title>
         <meta name="description" content="Portfolio page kkowalczyk.dev" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="og:title" content="kkowalczyk.dev - Karol Kowalczyk" />
+        <meta
+          property="og:description"
+          content="Karol Kowalczyk - Fullstack Developer - Portfolio"
+        />
+        <meta
+          property="og:image"
+          content="https://kkowalczyk.dev/kkowalczyk-og.jpg"
+        />
+        <meta property="og:url" content="https://kkowalczyk.dev" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="kkowalczyk.dev" />
+        <meta property="og:locale" content="en_US" />
       </Head>
 
       <main className="relative flex w-full flex-1 flex-col items-center justify-center text-center">

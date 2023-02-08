@@ -43,13 +43,13 @@ export const ProjectBox: React.FC<IProjectBox> = ({
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, margin: '-85px 0px' }}
-      className={`ProjectBox flex max-md:flex-col-reverse ${
-        reversed ? 'md:flex-row-reverse' : ''
+      className={`ProjectBox flex max-lg:flex-col-reverse ${
+        reversed ? 'lg:flex-row-reverse' : ''
       }`}
     >
-      <div className="ProjectBox__ImageWrapper relative z-0 mt-10 max-md:aspect-video max-md:w-full md:mt-12 md:h-[310px] md:flex-1">
+      <div className="ProjectBox__ImageWrapper relative z-0 mt-10 max-w-[700px] max-lg:mx-auto max-lg:aspect-video max-lg:w-full md:mt-12 lg:h-[310px] lg:flex-1">
         <div
-          className={`ImageContainer absolute top-0 h-full w-full overflow-hidden rounded-md bg-orange-primary/70 shadow-md transition-all hover:bg-transparent md:w-[112%] ${
+          className={`ImageContainer absolute top-0 h-full w-full overflow-hidden rounded-md bg-orange-primary/70 shadow-md transition-all hover:bg-transparent lg:w-[112%] ${
             reversed ? 'right-0' : 'left-0'
           }`}
         >
@@ -58,6 +58,7 @@ export const ProjectBox: React.FC<IProjectBox> = ({
           >
             <Image
               fill={true}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 700px, 640px"
               src={imagePath}
               alt={imageAlt}
               className="object-cover"

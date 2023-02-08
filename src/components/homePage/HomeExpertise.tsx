@@ -165,6 +165,7 @@ const HomeExpertiseTile: React.FC<IHomeExpertiseTile> = ({
           <Image
             fill={true}
             src={image}
+            sizes="(max-width: 640px) 64px, 64px"
             alt={`${alt}`}
             className="object-contain"
           />

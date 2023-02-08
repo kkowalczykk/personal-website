@@ -77,6 +77,7 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
               >
                 <Image
                   src={'/kkowalczyk.jpg'}
+                  sizes="(max-width: 640px) 318px, (max-width: 1024px) 318px, 318px"
                   alt="Karol Kowalczyk - headshot"
                   fill={true}
                   className="z-10 object-cover"
