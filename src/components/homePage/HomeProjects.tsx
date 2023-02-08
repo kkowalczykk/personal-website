@@ -1,9 +1,9 @@
 import { Projects } from '../projects/Projects';
 import { Section } from '../section/Section';
 
-export interface IHomeProjects extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const HomeProjects: React.FC<IHomeProjects> = ({ children }) => {
+export const HomeProjects: React.FC<
+  React.HTMLAttributes<HTMLDivElement>
+> = () => {
   return (
     <Section heading="Projects" sectionIndex="03">
       <Projects />

@@ -1,8 +1,8 @@
 import { IProjectBox, ProjectBox } from './ProjectBox';
 
-export interface IProjects extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const Projects: React.FC<IProjects> = ({ children }) => {
+export const Projects: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  children,
+}) => {
   const projects: IProjectBox[] = [
     {
       name: 'Obstaw.se',
@@ -15,6 +15,7 @@ export const Projects: React.FC<IProjects> = ({ children }) => {
             <a
               href="https://github.com/hubskysolutions"
               target="_blank"
+              rel="noreferrer"
               className="text-orange-primary"
             >
               friend
@@ -57,11 +58,12 @@ export const Projects: React.FC<IProjects> = ({ children }) => {
       description: (
         <div className="space-y-2 text-base font-thin">
           <p>
-            This project is a part of my master's thesis, which I have written
-            with my{' '}
+            This project is a part of my master&apos;s thesis, which I have
+            written with my{' '}
             <a
               href="https://github.com/hubskysolutions"
               target="_blank"
+              rel="noreferrer"
               className="text-orange-primary"
             >
               friend

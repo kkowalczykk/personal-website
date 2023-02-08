@@ -3,9 +3,7 @@ import { FiLinkedin } from 'react-icons/fi';
 import { MdMailOutline } from 'react-icons/md';
 import { motion } from 'framer-motion';
 
-export interface ISideIcons extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const SideIcons: React.FC<ISideIcons> = ({ children }) => {
+export const SideIcons: React.FC<React.HTMLAttributes<HTMLDivElement>> = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,6 +15,7 @@ export const SideIcons: React.FC<ISideIcons> = ({ children }) => {
         <a
           href="https://github.com/kkowalczykk"
           target={'_blank'}
+          rel="noreferrer"
           className="text-slate-400 transition-all duration-200 hover:-translate-y-0.5 hover:text-orange-primary"
         >
           <TbBrandGithub className="block h-6 w-6" />
@@ -24,6 +23,7 @@ export const SideIcons: React.FC<ISideIcons> = ({ children }) => {
         <a
           href="https://www.linkedin.com/in/kkowalczykk/"
           target={'_blank'}
+          rel="noreferrer"
           className="text-slate-400 transition-all duration-200 hover:-translate-y-0.5 hover:text-orange-primary"
         >
           <FiLinkedin className="block h-5 w-5" />

@@ -8,7 +8,8 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type NextPageWithLayout<P = unknown, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
 

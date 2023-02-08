@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 
 export default (
   ref: React.RefObject<HTMLElement>,
-  callback: Function,
-  condition: boolean = true
+  callback: () => void,
+  condition: boolean
 ) => {
   useEffect(() => {
     if (!condition) return;

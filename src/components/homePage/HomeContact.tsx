@@ -1,9 +1,9 @@
 import { ContactForm } from '../forms/ContactForm';
 import { Section } from '../section/Section';
 
-export interface IHomeContact extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const HomeContact: React.FC<IHomeContact> = ({ children }) => {
+export const HomeContact: React.FC<
+  React.HTMLAttributes<HTMLDivElement>
+> = () => {
   return (
     <Section
       heading="Stay in touch"
@@ -14,8 +14,8 @@ export const HomeContact: React.FC<IHomeContact> = ({ children }) => {
     >
       <div className="mt-10 space-y-3 text-center text-slate-300 sm:mt-20">
         <p className="text-lg sm:text-xl">
-          Have a question or a project you need help with? I'd love to hear from
-          you!
+          Have a question or a project you need help with? I&apos;d love to hear
+          from you!
         </p>
         <p className="text-lg sm:text-xl">
           I am open for new opportunities and I am always looking for new

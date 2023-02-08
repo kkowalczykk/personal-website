@@ -1,12 +1,11 @@
 import { Section } from '../section/Section';
-import { CgWebsite } from 'react-icons/cg';
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
 import { MdArrowRight } from 'react-icons/md';
 
-export interface IHomeExpertise extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
+export const HomeExpertise: React.FC<
+  React.HTMLAttributes<HTMLDivElement>
+> = () => {
   const variants: Variants = {
     offscreen: {
       opacity: 0,
@@ -77,7 +76,7 @@ export const HomeExpertise: React.FC<IHomeExpertise> = ({ children }) => {
           <span className="relative after:absolute after:bottom-0 after:left-0 after:-z-10 after:h-2 after:w-full after:bg-orange-primary/70">
             technologies
           </span>{' '}
-          I've worked with:
+          I&apos;ve worked with:
         </h3>
         <div className="mt-10 grid grid-cols-2 text-slate-300 sm:grid-cols-4">
           <div className="col-1">

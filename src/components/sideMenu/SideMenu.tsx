@@ -2,7 +2,6 @@ import { useRef } from 'react';
 import useClickOutside from '../../utils/useClickOutside';
 import Container from '../container/Container';
 import { MdClose, MdMailOutline } from 'react-icons/md';
-import Link from 'next/link';
 import { TbBrandGithub } from 'react-icons/tb';
 import { FiLinkedin } from 'react-icons/fi';
 
@@ -12,7 +11,7 @@ export interface ISideMenu extends React.HTMLAttributes<HTMLDivElement> {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
+const SideMenu: React.FC<ISideMenu> = ({ open, setOpen }) => {
   const sideMenuRef = useRef(null);
   useClickOutside(sideMenuRef, () => setOpen(false), open);
   const handleMenuItemClick = () => setOpen(false);
@@ -78,6 +77,7 @@ const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
           <a
             href="https://github.com/kkowalczykk"
             target={'_blank'}
+            rel="noreferrer"
             className=" transition-all duration-200 hover:-translate-y-0.5 hover:text-orange-primary"
           >
             <TbBrandGithub className="block h-6 w-6" />
@@ -85,6 +85,7 @@ const SideMenu: React.FC<ISideMenu> = ({ children, open, setOpen }) => {
           <a
             href="https://www.linkedin.com/in/kkowalczykk/"
             target={'_blank'}
+            rel="noreferrer"
             className=" transition-all duration-200 hover:-translate-y-0.5 hover:text-orange-primary"
           >
             <FiLinkedin className="block h-5 w-5" />
@@ -128,6 +129,6 @@ const SideMenuItem: React.FC<ISideMenuItem> = ({
   );
 };
 
-const SideMenuItemPrefix: React.FC<{}> = () => {
+const SideMenuItemPrefix: React.FC = () => {
   return <span className="mr-1 font-marker text-orange-primary">#</span>;
 };

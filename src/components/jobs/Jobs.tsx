@@ -2,8 +2,6 @@ import { MdArrowRight, MdLocationPin } from 'react-icons/md';
 import { ITechnology } from '../../types';
 import { JobBox } from './JobBox';
 
-export interface IJobs extends React.HTMLAttributes<HTMLDivElement> {}
-
 export interface IJob {
   jobName: string;
   jobCompany: {
@@ -16,7 +14,9 @@ export interface IJob {
   technologies: ITechnology[];
 }
 
-export const Jobs: React.FC<IJobs> = ({ className }) => {
+export const Jobs: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  className,
+}) => {
   const jobs: IJob[] = [
     {
       jobName: 'Web Developer',

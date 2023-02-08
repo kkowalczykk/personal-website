@@ -1,5 +1,5 @@
-import { useAtom, useSetAtom } from 'jotai';
-import { useEffect, useState } from 'react';
+import { useAtom } from 'jotai';
+import { useEffect } from 'react';
 import { isPointerAtom } from '../components/layouts/MainLayout';
 
 export default () => {

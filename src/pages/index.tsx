@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { BgGridlines } from '../components/backgrounds/Gridlines';
-import { BgShapes } from '../components/backgrounds/Shapes';
 import Container from '../components/container/Container';
 import { HomeAboutMe } from '../components/homePage/HomeAboutMe';
 import { HomeContact } from '../components/homePage/HomeContact';

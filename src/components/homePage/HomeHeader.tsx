@@ -1,13 +1,11 @@
 import Image from 'next/image';
-import { TiMessages } from 'react-icons/ti';
 import Container from '../container/Container';
 import ScrollDown from '../scrollDown/ScrollDown';
-import { motion, Variants } from 'framer-motion';
-import { MdMessage } from 'react-icons/md';
+import { motion } from 'framer-motion';
 
-export interface IHomeHeader extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const HomeHeader: React.FC<IHomeHeader> = ({ children }) => {
+export const HomeHeader: React.FC<
+  React.HTMLAttributes<HTMLDivElement>
+> = () => {
   return (
     <header className="z-10 flex min-h-screen w-full flex-col items-center justify-center pt-20">
       <Container className="flex flex-1 flex-col items-center justify-center">
@@ -34,7 +32,7 @@ export const HomeHeader: React.FC<IHomeHeader> = ({ children }) => {
           transition={{ delay: 0.7, duration: 0.4 }}
           className="mb-2 text-5xl font-bold"
         >
-          I'm Karol
+          I&apos;m Karol
           <span className="animate-blink ml-0.5 text-orange-primary">.</span>
         </motion.h1>
 

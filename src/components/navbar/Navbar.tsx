@@ -17,7 +17,7 @@ const Navbar: React.FC<INavbar> = ({ children }) => {
       const navbar = navbarRef.current;
       const navbarHeight = navbar?.clientHeight;
 
-      let currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window.pageYOffset;
 
       // Hide navbar on scroll down
       if (scrollPos > currentScrollPos) {

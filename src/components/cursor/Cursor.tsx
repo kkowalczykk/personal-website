@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const Cursor: React.FC<{}> = () => {
+const Cursor: React.FC = () => {
   const [cursorVariant, setCursorVariant] = useState('default');
   const [mousePosition, setMousePosition] = useState<{
     x: number;

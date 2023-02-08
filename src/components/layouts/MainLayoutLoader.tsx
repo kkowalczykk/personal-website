@@ -3,10 +3,9 @@ import { useAtom } from 'jotai';
 import { useEffect } from 'react';
 import { isLoadedAtom, mountPageAtom } from './MainLayout';
 
-export interface IMainLayoutLoader
-  extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const MainLayoutLoader: React.FC<IMainLayoutLoader> = ({ children }) => {
+export const MainLayoutLoader: React.FC<
+  React.HTMLAttributes<HTMLDivElement>
+> = ({ children }) => {
   const svgControls = useAnimationControls();
   const barControls = useAnimationControls();
   const barContainerControls = useAnimationControls();

@@ -1,7 +1,7 @@
 import { motion, useAnimationControls } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const ScrollDown: React.FC<{}> = () => {
+const ScrollDown: React.FC = () => {
   const [sequenceInitiator, setSequenceInitiator] = useState(false);
   const [isFirstTimeAnimating, setIsFirstTimeAnimating] = useState(true);
 

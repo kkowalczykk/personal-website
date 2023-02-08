@@ -1,9 +1,9 @@
 import { TRPCError } from '@trpc/server';
-import { z } from 'zod';
 import { contactFormValidation } from '../../../components/forms/ContactForm';
 import { transporter } from '../../mailer/mailer';
 import { router, publicProcedure } from '../trpc';
-const recaptcha = require('recaptcha2');
+// @ts-ignore
+import recaptcha from 'recaptcha2';
 
 const validateRecaptcha = async (token: string) => {
   const recaptchaClient = new recaptcha({

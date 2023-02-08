@@ -6,8 +6,6 @@ import { createPortal } from 'react-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import ReCAPTCHA from 'react-google-recaptcha';
 
-export interface IContactForm extends React.HTMLAttributes<HTMLFormElement> {}
-
 export const contactFormValidation = z.object({
   name: z.string().min(1).max(100),
   email: z.string().email(),
@@ -15,7 +13,9 @@ export const contactFormValidation = z.object({
   captcha: z.string().min(1).max(1000),
 });
 
-export const ContactForm: React.FC<IContactForm> = ({}) => {
+export const ContactForm: React.FC<
+  React.HTMLAttributes<HTMLFormElement>
+> = ({}) => {
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [message, setMessage] = useState<string>('');

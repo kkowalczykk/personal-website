@@ -1,14 +1,12 @@
 import Image from 'next/image';
-import { MdAdd, MdArrowRight, MdLocationPin } from 'react-icons/md';
 import { Jobs } from '../jobs/Jobs';
 import { Section } from '../section/Section';
-import { SectionHeading } from '../section/SectionHeading';
 import homeStyles from './Home.module.css';
 import { motion, Variants } from 'framer-motion';
 
-export interface IHomeAboutMe extends React.HTMLAttributes<HTMLDivElement> {}
-
-export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
+export const HomeAboutMe: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  children,
+}) => {
   const calculateAge = (birthday: Date) => {
     const ageDifMs = Date.now() - birthday.getTime();
     const ageDate = new Date(ageDifMs);
@@ -58,7 +56,7 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
             </p>
             <p>
               I am always looking for new opportunities to learn and grow, so if
-              you have a project that I can help with, don't hesitate to{' '}
+              you have a project that I can help with, don&apos;t hesitate to{' '}
               <a
                 href="#contact"
                 className="font-bold text-orange-primary transition-all duration-200 hover:underline"
@@ -99,64 +97,6 @@ export const HomeAboutMe: React.FC<IHomeAboutMe> = ({ children }) => {
         </h4>
 
         <Jobs />
-
-        {/* <div className="Jobs mt-5 space-y-6">
-          <div className="JobBox flex flex-col">
-            <div className="JobBox__main flex w-full items-center rounded-md bg-dark-secondary py-4 px-6">
-              <div className="JobBox__main__content flex flex-1">
-                <h5 className="inline-flex flex-1 text-xl">
-                  <span className="font-bold">Web Developer </span>
-                  <span className="mx-1 font-sans font-medium text-orange-primary">
-                    @
-                  </span>{' '}
-                  <a
-                    href="https://resultmedia.pl"
-                    target="_blank"
-                    className="text-orange-primary  hover:underline"
-                  >
-                    ResultMedia
-                  </a>
-                </h5>
-                <span className="">November 2020 - November 2022</span>
-              </div>
-              <button className="JobBox__main__button ml-4 block rounded-full border border-orange-primary p-3 text-xl transition-all hover:bg-orange-primary/20">
-                <MdAdd />
-              </button>
-            </div>
-            <div className="JobBox__accordion mt-2 flex w-full flex-col justify-center rounded-md bg-dark-secondary/50 py-4 px-6">
-              <span className="JobBox__accordion__location inline-flex items-center font-bold">
-                <span className="mr-2 text-xl text-orange-primary">
-                  <MdLocationPin />
-                </span>
-                Warsaw, PL
-              </span>
-              <div className="JobBox__accordion__desc mt-4">
-                <ul className="list-none space-y-3 text-base">
-                  <li>
-                    <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
-                    Creating user interfaces based on provided designs and
-                    wireframes.
-                  </li>
-                  <li>
-                    <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
-                    Working with different technologies and content management
-                    systems such as Vue, Nuxt, WordPress, Joomla, Prestashop,
-                    Express.js etc.
-                  </li>
-                  <li>
-                    <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
-                    Creating and maintaining websites and web applications.
-                  </li>
-                  <li>
-                    <MdArrowRight className="mr-3 inline text-2xl text-orange-primary" />
-                    Performance optimization and accessibility improvements of
-                    existing websites (SEO and Web Vitals).
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </motion.div>
     </Section>
   );

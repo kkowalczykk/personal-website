@@ -82,6 +82,7 @@ export const JobBox: React.FC<IJobBox> = ({
               <a
                 href={jobCompany.url}
                 target="_blank"
+                rel="noreferrer"
                 className="text-orange-primary  hover:underline"
               >
                 {jobCompany.name}

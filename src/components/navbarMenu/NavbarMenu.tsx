@@ -1,6 +1,5 @@
-import { MdMessage } from 'react-icons/md';
 import { motion, Variants } from 'framer-motion';
-const NavbarMenu: React.FC<{}> = () => {
+const NavbarMenu: React.FC = () => {
   const itemVariants: Variants = {
     show: {
       opacity: 1,
@@ -113,6 +112,6 @@ const NavbarMenuItem: React.FC<INavbarMenuItem> = ({
   );
 };
 
-const SideMenuItemPrefix: React.FC<{}> = () => {
+const SideMenuItemPrefix: React.FC = () => {
   return <span className="mr-1 font-marker text-orange-primary">#</span>;
 };
