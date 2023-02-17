@@ -7,10 +7,21 @@ import { motion, Variants } from 'framer-motion';
 export const HomeAboutMe: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   children,
 }) => {
-  const calculateAge = (birthday: Date) => {
-    const ageDifMs = Date.now() - birthday.getTime();
-    const ageDate = new Date(ageDifMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  const calculateAge = (birthDateString: Date) => {
+    const today = new Date();
+    const birthDate = new Date(birthDateString);
+
+    const yearsDifference = today.getFullYear() - birthDate.getFullYear();
+
+    if (
+      today.getMonth() < birthDate.getMonth() ||
+      (today.getMonth() === birthDate.getMonth() &&
+        today.getDate() < birthDate.getDate())
+    ) {
+      return yearsDifference - 1;
+    }
+
+    return yearsDifference;
   };
   const variants: Variants = {
     offscreen: {
