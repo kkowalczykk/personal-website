@@ -104,27 +104,6 @@ export const Projects: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
       {projects.map((project, index) => (
         <ProjectBox key={index} {...project} reversed={index % 2 == 1} />
       ))}
-
-
-
-      < >
-
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam harum,
-          autem minima molestiae, accusantium dolorem iusto minus eligendi
-          ratione ea fugiat tempora, eaque consequuntur eum quisquam. Incidunt
-          consequuntur cumque, ratione asperiores quidem unde enim minima in quo
-          et! Laboriosam, quam adipisci et rerum ut, aliquam pariatur facere
-          iste odit provident distinctio modi tempora consequuntur autem qui eum
-          nemo magni repellat officia, voluptatibus eveniet corporis. Amet nisi
-          nemo aspernatur, blanditiis quia veniam! Labore earum, reiciendis
-          illum porro sit doloremque ex praesentium delectus numquam veritatis
-          eaque eos cum ducimus quod totam voluptates, itaque odio iusto neque,
-          vero debitis est! Pariatur, illo voluptatibus!
-
-      </>
-
-
-
     </div>
   );
 };

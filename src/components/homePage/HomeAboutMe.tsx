@@ -47,7 +47,7 @@ export const HomeAboutMe: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
             <p>
               Hi, I am Karol Kowalczyk, a web developer from Poland. I am
               currently working as a freelancer and looking for new
-              opportunities. I am {calculateAge(new Date('8,17,1997'))} years
+              opportunities. I am {calculateAge(new Date('1997-08-17'))} years
               old and live in Warsaw.
             </p>
             <p>
