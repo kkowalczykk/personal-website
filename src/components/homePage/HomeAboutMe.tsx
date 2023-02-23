@@ -48,7 +48,10 @@ export const HomeAboutMe: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
               Hi, I am Karol Kowalczyk, a web developer from Poland. I am
               currently working as a freelancer and looking for new
               opportunities. I am {calculateAge(new Date('1997-08-17'))} years
-              old and live in Warsaw.
+              old and live in Warsaw. I have recently earned a master&apos;s
+              degree in Big Data from the Warsaw School of Economics.
+              Previously, I finished my engineering degree in geodesy at Warsaw
+              University of Technology.
             </p>
             <p>
               I am a full-stack developer with a passion for creating beautiful,
