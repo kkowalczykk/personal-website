@@ -1,9 +1,23 @@
-import { ContactForm } from '../forms/ContactForm';
 import { Section } from '../section/Section';
+import {
+  lazy,
+  Ref,
+  RefObject,
+  Suspense,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import LocationObserver from '../locationObserver/LocationObserver';
+import ContactFormLoader from '../forms/ContactFormLoader';
 
+const ContactForm = lazy(() => import('../forms/ContactForm'));
 export const HomeContact: React.FC<
   React.HTMLAttributes<HTMLDivElement>
 > = () => {
+  const ContactFormLoaderInitiator = useRef<HTMLDivElement>(null);
+  const [isCFLoaderIntersecting, setIsCFLoaderIntersecting] = useState(false);
+
   return (
     <Section
       heading="Stay in touch"
@@ -32,8 +46,15 @@ export const HomeContact: React.FC<
           or fill out the form below 👇.
         </p>
       </div>
-      <div className="mx-auto mt-10 w-full max-w-[500px] sm:mt-20">
-        <ContactForm />
+      <div
+        ref={ContactFormLoaderInitiator}
+        className="contactFormLoadInitiator mx-auto mt-10 w-full max-w-[500px] sm:mt-20"
+      >
+        <LocationObserver>
+          <Suspense fallback={<ContactFormLoader />}>
+            <ContactForm />
+          </Suspense>
+        </LocationObserver>
       </div>
     </Section>
   );

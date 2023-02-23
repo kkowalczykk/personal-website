@@ -259,3 +259,5 @@ const ContactFormInputErrorMessage: React.FC<IContactFormInputErrorMessage> = ({
     </>
   );
 };
+
+export default ContactForm;
