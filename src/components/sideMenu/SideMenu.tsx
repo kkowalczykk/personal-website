@@ -54,7 +54,7 @@ const SideMenu: React.FC<ISideMenu> = ({ open, setOpen }) => {
           <SideMenuItem
             text="Contact"
             path="#contact"
-            index="03"
+            index="04"
             onClick={handleMenuItemClick}
           ></SideMenuItem>
           <div>
