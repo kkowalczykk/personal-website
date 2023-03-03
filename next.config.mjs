@@ -27,6 +27,9 @@ const config = {
       }
     ]
   },
-  output: 'standalone'
+  output: 'standalone',
+  experimental: {
+    nextScriptWorkers: true,
+  }
 };
 export default config;

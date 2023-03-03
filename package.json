@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.7.5",
     "@next/font": "^13.0.6",
     "@tanstack/react-query": "^4.16.0",
     "@trpc/client": "^10.0.0",

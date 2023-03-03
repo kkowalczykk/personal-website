@@ -10,6 +10,9 @@ import { BgGridlines } from '../backgrounds/Gridlines';
 import { SideIcons } from '../sideIcons/SideIcons';
 import { MainLayoutLoader } from './MainLayoutLoader';
 import { Toaster } from 'react-hot-toast';
+import { Partytown } from '@builder.io/partytown/react';
+import Script from 'next/script';
+import Head from 'next/head';
 
 export const menuOpenAtom = atom(false);
 export const isPointerAtom = atom(false);
